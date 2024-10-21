@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.20"
+						"string" : "3.16"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -57,7 +57,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "opencvex::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opencvex-Debug-461100b408aa6b3bf155.json",
+					"jsonFile" : "target-opencvex-Debug-dffd9ea78f717816957e.json",
 					"name" : "opencvex",
 					"projectIndex" : 0
 				}
@@ -71,7 +71,7 @@
 					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.20"
+						"string" : "3.16"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -119,7 +119,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "opencvex::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opencvex-Release-03417ee5854d8637e329.json",
+					"jsonFile" : "target-opencvex-Release-57a873b7349309ec5ada.json",
 					"name" : "opencvex",
 					"projectIndex" : 0
 				}
@@ -133,7 +133,7 @@
 					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.20"
+						"string" : "3.16"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -181,7 +181,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "opencvex::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opencvex-MinSizeRel-eb66c522d674d8028d19.json",
+					"jsonFile" : "target-opencvex-MinSizeRel-938d1f9431e2c3a032d1.json",
 					"name" : "opencvex",
 					"projectIndex" : 0
 				}
@@ -195,7 +195,7 @@
 					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.20"
+						"string" : "3.16"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -243,7 +243,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "opencvex::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opencvex-RelWithDebInfo-d361693d9b0edb3c69ab.json",
+					"jsonFile" : "target-opencvex-RelWithDebInfo-f0f7078408f1223c93e8.json",
 					"name" : "opencvex",
 					"projectIndex" : 0
 				}
