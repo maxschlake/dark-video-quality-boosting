@@ -18,7 +18,7 @@ message(STATUS "Qt6Widgets_INCLUDE_DIRS: ${Qt6Widgets_INCLUDE_DIRS}")
 
 add_executable(${PROJECT_NAME}
     src/main.cpp 
-    src/ImageLabel.cpp
+    src/LabelImage.cpp
     src/ReadImageQt.cpp)
     #src/utils.cpp)
 

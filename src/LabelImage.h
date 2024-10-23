@@ -1,15 +1,15 @@
-#ifndef IMAGE_LABEL_H
-#define IMAGE_LABEL_H
+#ifndef LABEL_IMAGE_H
+#define LABEL_IMAGE_H
 
 #include <QLabel>
 #include <QMouseEvent>
 
-class ImageLabel : public QLabel
+class LabelImage : public QLabel
 {
     Q_OBJECT
 
 public:
-    explicit ImageLabel(QWidget *parent = nullptr); // Constructor
+    explicit LabelImage(QWidget *parent = nullptr); // Constructor
 
 signals:
     void rgbValueChanged(int red, int green, int blue); // Signal to emit RGB values

@@ -1,9 +1,9 @@
-#include "ImageLabel.h"
+#include "LabelImage.h"
 #include <QMouseEvent>
 #include <QPixmap>
 #include <QImage>
 
-ImageLabel::ImageLabel(QWidget *parent) : QLabel(parent)
+LabelImage::LabelImage(QWidget *parent) : QLabel(parent)
 {
     setMouseTracking(true);
     setAlignment(Qt::AlignCenter);
@@ -11,7 +11,7 @@ ImageLabel::ImageLabel(QWidget *parent) : QLabel(parent)
     setText("No image loaded.");
 }
 
-void ImageLabel::mouseMoveEvent(QMouseEvent *event)
+void LabelImage::mouseMoveEvent(QMouseEvent *event)
 {
     if (pixmap().isNull())
         return;

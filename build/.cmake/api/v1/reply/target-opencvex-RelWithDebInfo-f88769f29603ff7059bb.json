@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/opencvex.exe"
+			"path" : "RelWithDebInfo/opencvex.exe"
 		},
 		{
-			"path" : "Debug/opencvex.pdb"
+			"path" : "RelWithDebInfo/opencvex.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -183,7 +183,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /O2 /Ob1 /DNDEBUG -std:c++17 -MD"
 				},
 				{
 					"backtrace" : 2,
@@ -207,6 +207,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_NO_DEBUG"
 				},
 				{
 					"backtrace" : 2,
@@ -241,7 +245,7 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include_Debug"
+					"path" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include_RelWithDebInfo"
 				},
 				{
 					"backtrace" : 25,
@@ -310,7 +314,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /O2 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
@@ -319,97 +323,97 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100d.lib",
+				"fragment" : "C:\\opt\\opencv\\build\\x64\\vc16\\lib\\opencv_world4100.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Widgetsd.lib",
+				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Widgets.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Guid.lib",
+				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Gui.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Cored.lib",
+				"fragment" : "C:\\Qt\\6.8.0\\msvc2022_64\\lib\\Qt6Core.lib",
 				"role" : "libraries"
 			},
 			{
@@ -475,7 +479,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/opencvex_autogen/mocs_compilation_Debug.cpp",
+			"path" : "build/opencvex_autogen/mocs_compilation_RelWithDebInfo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -487,7 +491,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/ImageLabel.cpp",
+			"path" : "src/LabelImage.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

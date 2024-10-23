@@ -1,4 +1,4 @@
-C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include_Debug/utils.moc: C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp \
+C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include_Debug/UVLADIE3JM/moc_LabelImage.cpp: C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QList \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QRect \
@@ -135,7 +135,6 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/QMouseEvent \
-  C:/Qt/6.8.0/msvc2022_64/include/QtGui/QPixmap \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/QTransform \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qaction.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbitmap.h \
@@ -175,132 +174,11 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qvectornd.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QApplication \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QLabel \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QStatusBar \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QVBoxLayout \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QWizard \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qapplication.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qboxlayout.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qframe.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlabel.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlayout.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qsizepolicy.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwizard.h \
-  C:/opt/opencv/build/include/opencv2/calib3d.hpp \
-  C:/opt/opencv/build/include/opencv2/core.hpp \
-  C:/opt/opencv/build/include/opencv2/core/affine.hpp \
-  C:/opt/opencv/build/include/opencv2/core/async.hpp \
-  C:/opt/opencv/build/include/opencv2/core/base.hpp \
-  C:/opt/opencv/build/include/opencv2/core/bufferpool.hpp \
-  C:/opt/opencv/build/include/opencv2/core/check.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cuda.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cuda.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cuda_types.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
-  C:/opt/opencv/build/include/opencv2/core/cvdef.h \
-  C:/opt/opencv/build/include/opencv2/core/cvstd.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cvstd.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/core/cvstd_wrapper.hpp \
-  C:/opt/opencv/build/include/opencv2/core/fast_math.hpp \
-  C:/opt/opencv/build/include/opencv2/core/hal/interface.h \
-  C:/opt/opencv/build/include/opencv2/core/mat.hpp \
-  C:/opt/opencv/build/include/opencv2/core/mat.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/core/matx.hpp \
-  C:/opt/opencv/build/include/opencv2/core/matx.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/core/neon_utils.hpp \
-  C:/opt/opencv/build/include/opencv2/core/operations.hpp \
-  C:/opt/opencv/build/include/opencv2/core/optim.hpp \
-  C:/opt/opencv/build/include/opencv2/core/ovx.hpp \
-  C:/opt/opencv/build/include/opencv2/core/persistence.hpp \
-  C:/opt/opencv/build/include/opencv2/core/saturate.hpp \
-  C:/opt/opencv/build/include/opencv2/core/traits.hpp \
-  C:/opt/opencv/build/include/opencv2/core/types.hpp \
-  C:/opt/opencv/build/include/opencv2/core/utility.hpp \
-  C:/opt/opencv/build/include/opencv2/core/utils/logger.defines.hpp \
-  C:/opt/opencv/build/include/opencv2/core/utils/logger.hpp \
-  C:/opt/opencv/build/include/opencv2/core/utils/logtag.hpp \
-  C:/opt/opencv/build/include/opencv2/core/version.hpp \
-  C:/opt/opencv/build/include/opencv2/core/vsx_utils.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/dict.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/dnn.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/layer.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/utils/inference_engine.hpp \
-  C:/opt/opencv/build/include/opencv2/dnn/version.hpp \
-  C:/opt/opencv/build/include/opencv2/features2d.hpp \
-  C:/opt/opencv/build/include/opencv2/flann.hpp \
-  C:/opt/opencv/build/include/opencv2/flann/all_indices.h \
-  C:/opt/opencv/build/include/opencv2/flann/allocator.h \
-  C:/opt/opencv/build/include/opencv2/flann/any.h \
-  C:/opt/opencv/build/include/opencv2/flann/autotuned_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/composite_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/config.h \
-  C:/opt/opencv/build/include/opencv2/flann/defines.h \
-  C:/opt/opencv/build/include/opencv2/flann/dist.h \
-  C:/opt/opencv/build/include/opencv2/flann/dynamic_bitset.h \
-  C:/opt/opencv/build/include/opencv2/flann/flann_base.hpp \
-  C:/opt/opencv/build/include/opencv2/flann/general.h \
-  C:/opt/opencv/build/include/opencv2/flann/ground_truth.h \
-  C:/opt/opencv/build/include/opencv2/flann/heap.h \
-  C:/opt/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/index_testing.h \
-  C:/opt/opencv/build/include/opencv2/flann/kdtree_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/kdtree_single_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/kmeans_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/linear_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/logger.h \
-  C:/opt/opencv/build/include/opencv2/flann/lsh_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/lsh_table.h \
-  C:/opt/opencv/build/include/opencv2/flann/matrix.h \
-  C:/opt/opencv/build/include/opencv2/flann/miniflann.hpp \
-  C:/opt/opencv/build/include/opencv2/flann/nn_index.h \
-  C:/opt/opencv/build/include/opencv2/flann/params.h \
-  C:/opt/opencv/build/include/opencv2/flann/random.h \
-  C:/opt/opencv/build/include/opencv2/flann/result_set.h \
-  C:/opt/opencv/build/include/opencv2/flann/sampling.h \
-  C:/opt/opencv/build/include/opencv2/flann/saving.h \
-  C:/opt/opencv/build/include/opencv2/flann/timer.h \
-  C:/opt/opencv/build/include/opencv2/highgui.hpp \
-  C:/opt/opencv/build/include/opencv2/imgcodecs.hpp \
-  C:/opt/opencv/build/include/opencv2/imgproc.hpp \
-  C:/opt/opencv/build/include/opencv2/imgproc/segmentation.hpp \
-  C:/opt/opencv/build/include/opencv2/ml.hpp \
-  C:/opt/opencv/build/include/opencv2/ml/ml.inl.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/aruco_board.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/aruco_detector.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/aruco_dictionary.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/barcode.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/charuco_detector.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/face.hpp \
-  C:/opt/opencv/build/include/opencv2/objdetect/graphical_code_detector.hpp \
-  C:/opt/opencv/build/include/opencv2/opencv.hpp \
-  C:/opt/opencv/build/include/opencv2/opencv_modules.hpp \
-  C:/opt/opencv/build/include/opencv2/photo.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/camera.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/util.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
-  C:/opt/opencv/build/include/opencv2/stitching/warpers.hpp \
-  C:/opt/opencv/build/include/opencv2/video.hpp \
-  C:/opt/opencv/build/include/opencv2/video/background_segm.hpp \
-  C:/opt/opencv/build/include/opencv2/video/tracking.hpp \
-  C:/opt/opencv/build/include/opencv2/videoio.hpp
+  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h

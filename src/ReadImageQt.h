@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QStatusBar>
-#include "ImageLabel.h"
+#include "LabelImage.h"
 
 class ReadImageQt : public QWidget
 {
@@ -15,7 +15,7 @@ public:
     void showImage(const QString &imagePath, double scaleFactor = 1.0);
 
 private:
-    ImageLabel *imageLabel;
+    LabelImage *labelImage;
     QStatusBar *statusBar;
     QVBoxLayout *layout;
 

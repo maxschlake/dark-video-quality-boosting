@@ -190,4 +190,4 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
-  C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ImageLabel.h
+  C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h

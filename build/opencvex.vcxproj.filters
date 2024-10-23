@@ -7,7 +7,7 @@
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ImageLabel.cpp">
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\LabelImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ReadImageQt.cpp">

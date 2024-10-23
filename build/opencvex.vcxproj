@@ -410,7 +410,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\main.cpp" />
-    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ImageLabel.cpp" />
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\LabelImage.cpp" />
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ReadImageQt.cpp" />
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\mocs_compilation_Release.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

@@ -9,15 +9,15 @@ ReadImageQt::ReadImageQt(QWidget *parent) : QWidget(parent)
 
 
     layout = new QVBoxLayout(this);
-    imageLabel = new ImageLabel(this);
-    imageLabel->setMouseTracking(true);
+    labelImage = new LabelImage(this);
+    labelImage->setMouseTracking(true);
 
     statusBar = new QStatusBar(this);
     statusBar->showMessage("Move your mouse over the image to see the RGB values");
 
-    connect(imageLabel, &ImageLabel::rgbValueChanged, this, &ReadImageQt::updateStatusBar);
+    connect(labelImage, &LabelImage::rgbValueChanged, this, &ReadImageQt::updateStatusBar);
 
-    layout->addWidget(imageLabel);
+    layout->addWidget(labelImage);
     layout->addWidget(statusBar);
 }
 
@@ -35,8 +35,8 @@ void ReadImageQt::showImage(const QString &imagePath, double scaleFactor)
         
         // Convert the image to QPixmap
         QImage qImage(image.data, image.cols, image.rows, image.step[0], QImage::Format_RGB888);
-        imageLabel->setPixmap(QPixmap::fromImage(qImage));
-        imageLabel->resize(qImage.size());
+        labelImage->setPixmap(QPixmap::fromImage(qImage));
+        labelImage->resize(qImage.size());
     }
     else
     {

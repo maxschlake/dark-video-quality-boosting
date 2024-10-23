@@ -268,9 +268,9 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ImageLabel.h",
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h",
 			"Mu",
-			"UVLADIE3JM/moc_ImageLabel.cpp",
+			"UVLADIE3JM/moc_LabelImage.cpp",
 			null
 		],
 		[
@@ -429,7 +429,7 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ImageLabel.cpp",
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.cpp",
 			"Mu",
 			null
 		],

@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'ImageLabel.h'
+** Meta object code from reading C++ file 'LabelImage.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../src/ImageLabel.h"
+#include "../../../../src/LabelImage.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
@@ -17,7 +17,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'ImageLabel.h' doesn't include <QObject>."
+#error "The header file 'LabelImage.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.8.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -34,9 +34,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSImageLabelENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSImageLabelENDCLASS = QtMocHelpers::stringData(
-    "ImageLabel",
+struct qt_meta_stringdata_CLASSLabelImageENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSLabelImageENDCLASS = QtMocHelpers::stringData(
+    "LabelImage",
     "rgbValueChanged",
     "",
     "red",
@@ -48,7 +48,7 @@ constexpr auto qt_meta_stringdata_CLASSImageLabelENDCLASS = QtMocHelpers::string
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSImageLabelENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSLabelImageENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -70,15 +70,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSImageLabelENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject ImageLabel::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject LabelImage::staticMetaObject = { {
     QMetaObject::SuperData::link<QLabel::staticMetaObject>(),
-    qt_meta_stringdata_CLASSImageLabelENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSImageLabelENDCLASS,
+    qt_meta_stringdata_CLASSLabelImageENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSLabelImageENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSImageLabelENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSLabelImageENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<ImageLabel, std::true_type>,
+        QtPrivate::TypeAndForceComplete<LabelImage, std::true_type>,
         // method 'rgbValueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
@@ -88,10 +88,10 @@ Q_CONSTINIT const QMetaObject ImageLabel::staticMetaObject = { {
     nullptr
 } };
 
-void ImageLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void LabelImage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<ImageLabel *>(_o);
+        auto *_t = static_cast<LabelImage *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->rgbValueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[3]))); break;
@@ -100,8 +100,8 @@ void ImageLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (ImageLabel::*)(int , int , int );
-            if (_t _q_method = &ImageLabel::rgbValueChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (LabelImage::*)(int , int , int );
+            if (_t _q_method = &LabelImage::rgbValueChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
@@ -109,20 +109,20 @@ void ImageLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     }
 }
 
-const QMetaObject *ImageLabel::metaObject() const
+const QMetaObject *LabelImage::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ImageLabel::qt_metacast(const char *_clname)
+void *LabelImage::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSImageLabelENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSLabelImageENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QLabel::qt_metacast(_clname);
 }
 
-int ImageLabel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int LabelImage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QLabel::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -140,7 +140,7 @@ int ImageLabel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ImageLabel::rgbValueChanged(int _t1, int _t2, int _t3)
+void LabelImage::rgbValueChanged(int _t1, int _t2, int _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
