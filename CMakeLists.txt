@@ -19,7 +19,8 @@ message(STATUS "Qt6Widgets_INCLUDE_DIRS: ${Qt6Widgets_INCLUDE_DIRS}")
 add_executable(${PROJECT_NAME}
     src/main.cpp 
     src/LabelImage.cpp
-    src/ReadImageQt.cpp)
+    src/ReadImageQt.cpp
+    src/WriteImage.cpp)
     #src/utils.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} Qt6::Widgets)

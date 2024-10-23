@@ -185,6 +185,7 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h
+C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.h
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/QList
@@ -381,5 +382,6 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h
  mdp:C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h
  mdp:C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.cpp
+C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.cpp
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp

@@ -6,7 +6,7 @@ int main (int argc, char *argv[])
     QApplication app(argc, argv);
 
     ReadImageQt readImageQt;
-    readImageQt.showImage("images/penguin.jpg");
+    readImageQt.showImage("images/raw/penguin.jpg");
     readImageQt.show();
 
     return app.exec();

@@ -278,6 +278,12 @@
 			"Mu",
 			"UVLADIE3JM/moc_ReadImageQt.cpp",
 			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.h",
+			"Mu",
+			"UVLADIE3JM/moc_WriteImage.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -435,6 +441,11 @@
 		],
 		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.cpp",
 			"Mu",
 			null
 		],
