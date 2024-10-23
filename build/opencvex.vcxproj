@@ -86,8 +86,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <ConformanceMode>true</ConformanceMode>
@@ -108,10 +108,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;QT_WIDGETS_LIB;QT_CORE_LIB;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Debug;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -151,8 +151,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ConformanceMode>true</ConformanceMode>
@@ -174,10 +174,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_Release;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -217,8 +217,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ConformanceMode>true</ConformanceMode>
@@ -240,10 +240,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_MinSizeRel;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -283,8 +283,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opt/opencv/build/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtWidgets" /external:I "C:/Qt/6.8.0/msvc2022_64/include" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtCore" /external:I "C:/Qt/6.8.0/msvc2022_64/include/QtGui" /external:I "C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ConformanceMode>true</ConformanceMode>
@@ -305,10 +305,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\include_RelWithDebInfo;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Qt\6.8.0\msvc2022_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -409,7 +409,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\utils.cpp" />
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\main.cpp" />
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ImageLabel.cpp" />
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ReadImageQt.cpp" />
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\mocs_compilation_Release.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>

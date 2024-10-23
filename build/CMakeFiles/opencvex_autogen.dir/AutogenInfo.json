@@ -265,7 +265,21 @@
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ImageLabel.h",
+			"Mu",
+			"UVLADIE3JM/moc_ImageLabel.cpp",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h",
+			"Mu",
+			"UVLADIE3JM/moc_ReadImageQt.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include",
 	"INCLUDE_DIR_Debug" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/opencvex_autogen/include_Debug",
@@ -339,42 +353,42 @@
 	"MOC_INCLUDES" : [],
 	"MOC_INCLUDES_Debug" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/[C:/opt/opencv/build/include",
+		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtCore",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtGui",
-		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc"
 	],
 	"MOC_INCLUDES_MinSizeRel" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/[C:/opt/opencv/build/include",
+		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtCore",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtGui",
-		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc"
 	],
 	"MOC_INCLUDES_RelWithDebInfo" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/[C:/opt/opencv/build/include",
+		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtCore",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtGui",
-		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc"
 	],
 	"MOC_INCLUDES_Release" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/[C:/opt/opencv/build/include",
+		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtCore",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtGui",
-		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc"
 	],
 	"MOC_MACRO_NAMES" : 
@@ -415,7 +429,17 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp",
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ImageLabel.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp",
 			"Mu",
 			null
 		]

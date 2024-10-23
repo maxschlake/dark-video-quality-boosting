@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\maxim\Documents\Projects\video-quality-boosting\[C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opt\opencv\build\include;C:\Qt\6.8.0\msvc2022_64\include\QtWidgets;C:\Qt\6.8.0\msvc2022_64\include;C:\Qt\6.8.0\msvc2022_64\include\QtCore;C:\Qt\6.8.0\msvc2022_64\include\QtGui;C:\Users\maxim\Documents\Projects\video-quality-boosting\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
