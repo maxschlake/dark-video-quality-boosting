@@ -16,6 +16,9 @@
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\WriteImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex_autogen\mocs_compilation_Release.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

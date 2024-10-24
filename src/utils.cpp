@@ -1,123 +1,59 @@
 #include <opencv2/opencv.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
 #include <iostream>
-#include <filesystem>
-#include <QApplication>
-#include <QWizard>
-#include <QLabel>
-#include <QPixmap>
-#include <QMouseEvent>
-#include <QVBoxLayout>
-#include <QStatusBar>
 
-// Function to show an image using QWidget
-
-// Subclass QLabel to handle mouse events
-class ImageLabel : public QLabel
+cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight)
 {
-    Q_OBJECT
+    // Get image dimensions
+    int imageWidth = image.cols;
+    int imageHeight = image.rows;
 
-public: 
-    ImageLabel(QWidget *parent = nullptr) : QLabel(parent) {}
+    // Calculate the scaling factor based on the window size
+    double scaleFactorWidth = static_cast<double>(windowMaxWidth) / imageWidth;
+    double scaleFactorHeight = static_cast<double>(windowMaxWidth) / imageHeight;
 
-protected:
-    void mouseMoveEvent(QMouseEvent * event) override
+    // Use the smaller of the two scaling factors to ensure the image fits both dimensions
+    double scaleFactor = std::min(scaleFactorWidth, scaleFactorHeight);
+
+    // If the image fits within the window, do not resize
+    if (scaleFactor >= 1.0)
     {
-        if (pixmap().isNull())
-            return;
+        return image.clone();
+    }
+
+    // Otherwise, resize the image
+    cv::Mat resizedImage;
+    cv::resize(image, resizedImage, cv::Size(), scaleFactor, scaleFactor);
+    return resizedImage;
+}
+
+void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
+{
+    // Loop through each channel
+    cv::Mat channels[3];
+    split(image, channels);
+
+    for (int c = 0; c < 3; ++c)
+    {
+        cv::Mat channel = channels[c];
         
-        // Get image from the QLabel
-        QImage image = pixmap().toImage();
+        // find empirical min and max pixel values
+        double minVal, maxVal;
+        cv::minMaxLoc(channel, &minVal, &maxVal);
+        std::cout << minVal << maxVal << "\n";
 
-        // Get the coordinates of the mouse pointer
-        int x = event -> pos().x();
-        int y = event -> pos().y();
-
-        // Ensure coordinates are within the image bounds
-        if (x >= 0 && x < image.width() && y >= 0 && y < image.height())
+        // Stretch the channel
+        for (int y = 0; y < image.rows; ++y)
         {
-            // Get the pixel value (QRgb) at the mouse coordinates
-            QRgb pixel = image.pixel(x, y);
-
-            // Extract the RGB values 
-            int red = qRed(pixel);
-            int green = qGreen(pixel);
-            int blue = qBlue(pixel);
-
-            // Update the status bar with the RGB values
-            emit rgbValueChanged(red, green, blue);
+            for (int x = 0; x < image.cols; ++x)
+            {
+                // Apply stretching formula
+                uchar oldVal = channel.at<uchar>(y, x);
+                uchar newVal = static_cast<uchar>((oldVal - minVal) * (maxLim - minLim) / (maxVal - minVal) + minLim);
+                channel.at<uchar>(y, x) = newVal;
+            }
         }
     }
 
-signals:
-    void rgbValueChanged(int red, int green, int blue);
-};
-
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-
-    // Main window widget
-    QWidget window;
-    window.setWindowTitle("Image RGB viewer");
-    window.resize(800, 600);
-
-    // Layout to organize the image and status bar
-    QVBoxLayout *layout = new QVBoxLayout(&window);
-
-    // Create custom label to display the image
-    ImageLabel *imageLabel = new ImageLabel(&window);
-    imageLabel->setMouseTracking(true);
-
-    // Load the image using QPixmap
-    QPixmap pixmap("images/penguin.jpg");
-    imageLabel->setPixmap(pixmap);
-    imageLabel->resize(pixmap.size());
-
-    // Status bar to display the RGB values 
-    QStatusBar *statusBar = new QStatusBar(&window);
-    statusBar->showMessage("Move your mouse over the image to see the RGB values");
-
-    // Connect the signal to update the RGB values in the status bar
-    QObject::connect(imageLabel, &ImageLabel::rgbValueChanged, [&](int r, int g, int b)
-    {
-        statusBar->showMessage(QString("R: %1, G: %2, B: %3").arg(r).arg(g).arg(b));
-    });
-
-    // Add the image and status bar to the layout
-    layout->addWidget(imageLabel);
-    layout->addWidget(statusBar);
-
-    // Show the main window
-    window.show();
-
-    return app.exec();
-
+    // Merge the modified channels back together
+    merge(channels, 3, image);
 }
-
-#include "utils.moc"
-
-/*
-int main()
-{
-    cv::utils::logging::setLogLevel(cv::utils::logging::LOG_LEVEL_WARNING);
-    std::string imagePath = "images/penguin.jpg";
-    std::cout << "Current path: " << std::filesystem::current_path() << "\n";
-    cv::Mat image = cv::imread(imagePath, cv::IMREAD_COLOR);
-    cv::imshow("Display window", image);
-    cv::waitKey(0);
-    return 0;
-}
-*/
-
-/*
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    QWidget w;
-    w.show();
-    return a.exec();
-}  
-*/ 
-

@@ -284,6 +284,12 @@
 			"Mu",
 			"UVLADIE3JM/moc_WriteImage.cpp",
 			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.h",
+			"Mu",
+			"UVLADIE3JM/moc_utils.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -451,6 +457,11 @@
 		],
 		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp",
 			"Mu",
 			null
 		]
