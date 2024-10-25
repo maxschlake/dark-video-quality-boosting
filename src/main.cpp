@@ -21,6 +21,7 @@ int main (int argc, char *argv[])
     fitImageToWindow(image, 800, 600);
 
     stretchColorChannels(image, 0, 255);
+    transformLogarithmic(image, 0.2, 255);
 
     cv::imshow("stretched", image);
     cv::waitKey(0);

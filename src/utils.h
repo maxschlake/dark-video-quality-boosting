@@ -9,4 +9,7 @@ cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMax
 // Function to apply color channel stretching
 void stretchColorChannels(const cv::Mat& image, int minLim, int MaxLim);
 
+// Function to apply the logarithmic transformation
+void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim);
+
 #endif
