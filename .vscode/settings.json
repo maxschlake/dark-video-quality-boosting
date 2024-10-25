@@ -74,6 +74,14 @@
         "unordered_map": "cpp",
         "xhash": "cpp",
         "xtree": "cpp",
-        "*.moc": "cpp"
+        "*.moc": "cpp",
+        "condition_variable": "cpp",
+        "future": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "source_location": "cpp",
+        "stdfloat": "cpp",
+        "variant": "cpp"
     }
 }

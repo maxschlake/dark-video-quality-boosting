@@ -7,13 +7,15 @@ cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMax
     // Get image dimensions
     int imageWidth = image.cols;
     int imageHeight = image.rows;
+    std::cout << imageWidth << ", " << imageHeight << "\n";
 
     // Calculate the scaling factor based on the window size
     double scaleFactorWidth = static_cast<double>(windowMaxWidth) / imageWidth;
-    double scaleFactorHeight = static_cast<double>(windowMaxWidth) / imageHeight;
+    double scaleFactorHeight = static_cast<double>(windowMaxHeight) / imageHeight;
 
     // Use the smaller of the two scaling factors to ensure the image fits both dimensions
     double scaleFactor = std::min(scaleFactorWidth, scaleFactorHeight);
+    std::cout << scaleFactorWidth << ", " << scaleFactorHeight << ", " << scaleFactor << "\n";
 
     // If the image fits within the window, do not resize
     if (scaleFactor >= 1.0)
@@ -40,7 +42,6 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
         // find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);
-        std::cout << minVal << ", " << maxVal << "\n";
 
         // Stretch the channel
         for (int y = 0; y < image.rows; ++y)
@@ -73,7 +74,6 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
         // find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);
-        std::cout << minVal << ", " << maxVal << "\n";
 
         // Compute the output scale factor
         double outputScale = 255 / (log(1 + maxVal));

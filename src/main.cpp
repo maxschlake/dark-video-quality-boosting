@@ -16,9 +16,12 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/jam.jpg");
+    cv::Mat image = cv::imread("images/raw/path.jpg");
 
-    fitImageToWindow(image, 800, 600);
+    if(image.empty())
+    std::cerr << "Image could not be loaded" << "\n";
+
+    image = fitImageToWindow(image, 1280, 720);
 
     stretchColorChannels(image, 0, 255);
     transformLogarithmic(image, 0.2, 255);
