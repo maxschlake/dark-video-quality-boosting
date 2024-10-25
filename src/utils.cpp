@@ -36,10 +36,8 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
     std::vector<cv::Mat> channels;
     cv::split(image, channels);
 
-    for (int c = 0; c < 3; ++c)
+    for (auto& channel : channels)
     {
-        cv::Mat channel = channels[c];
-        
         // find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);
@@ -68,10 +66,8 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
     std::vector<cv::Mat> channels;
     cv::split(image, channels);
 
-    for (int c = 0; c < 3; ++c)
+    for (auto& channel : channels)
     {
-        cv::Mat channel = channels[c];
-
         // find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);

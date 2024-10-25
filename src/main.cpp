@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
 
     transformLogarithmic(image, 0.2, 255);
 
-    transformHistEqual(image, 2.0, cv::Size (8,8), "global");
+    transformHistEqual(image, 2.0, cv::Size (8,8), "local");
 
     // NEXT: Pipeline from Veluchamy
 
