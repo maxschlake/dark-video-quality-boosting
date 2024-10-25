@@ -3,6 +3,7 @@
 #include "WriteImage.h"
 #include <opencv2/opencv.hpp>
 #include "utils.h"
+#include <opencv2/imgproc.hpp>
 
 int main (int argc, char *argv[])
 {
@@ -16,7 +17,7 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/path.jpg");
+    cv::Mat image = cv::imread("images/raw/jam.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
@@ -24,9 +25,14 @@ int main (int argc, char *argv[])
     image = fitImageToWindow(image, 1280, 720);
 
     stretchColorChannels(image, 0, 255);
+
     transformLogarithmic(image, 0.2, 255);
 
-    cv::imshow("stretched", image);
+    transformHistEqual(image, 2.0, cv::Size (8,8), "global");
+
+    // NEXT: Pipeline from Veluchamy
+
+    cv::imshow("Output", image);
     cv::waitKey(0);
 
 

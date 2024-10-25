@@ -1,6 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <math.h>
+#include <opencv2/imgproc.hpp>
 
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight)
 {
@@ -32,8 +33,8 @@ cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMax
 void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
 {
     // Loop through each channel
-    cv::Mat channels[3];
-    split(image, channels);
+    std::vector<cv::Mat> channels;
+    cv::split(image, channels);
 
     for (int c = 0; c < 3; ++c)
     {
@@ -57,15 +58,15 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
     }
 
     // Merge the modified channels back together
-    merge(channels, 3, image);
+    cv::merge(channels, image);
 }
 
 void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
 {
     
     // Loop through each channel
-    cv::Mat channels[3];
-    split(image, channels);
+    std::vector<cv::Mat> channels;
+    cv::split(image, channels);
 
     for (int c = 0; c < 3; ++c)
     {
@@ -92,5 +93,35 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
     }
 
     // Merge the modified channels back together
-    merge(channels, 3, image);
+    cv::merge(channels, image);
+}
+
+void transformHistEqual(const cv::Mat& image, double clipLimit = 40.0, cv::Size tileGridSize = cv::Size(8, 8), const std::string& equalType = "local")
+{
+    // Apply channel-wise
+    std::vector<cv::Mat> channels;
+    split(image, channels);
+
+    if (equalType == "local")
+    {
+        cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(clipLimit, tileGridSize);
+        for (auto& channel : channels)
+        {
+            clahe->apply(channel, channel);
+        }
+    }
+    else if (equalType == "global")
+    {
+        for (auto& channel : channels)
+        {
+            cv::equalizeHist(channel, channel);
+        }
+    }
+    else
+    {
+        std::cerr << "Invalid equalType value. Use 'local' or 'global'.\n";
+    }
+
+    // Merge the modified channels back together
+    cv::merge(channels, image);
 }
