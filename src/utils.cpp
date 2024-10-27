@@ -59,7 +59,6 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
 
 void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
 {
-    
     // Loop through each channel
     std::vector<cv::Mat> channels;
     cv::split(image, channels);
@@ -163,53 +162,4 @@ void transformBGRToHSI(cv::Mat& image, double maxLim)
             image.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i);
         }
     }
-}
-
-cv::Mat test(cv::Mat& image)
-{
-    cv::Mat hsi(image.rows, image.cols, image.type());
-
-    float r, g, b, h, s, in;
-
-    for(int i = 0; i < image.rows; i++)
-        {
-        for(int j = 0; j < image.cols; j++)
-            {
-            b = image.at<cv::Vec3b>(i, j)[0];
-            g = image.at<cv::Vec3b>(i, j)[1];
-            r = image.at<cv::Vec3b>(i, j)[2];
-
-            in = (b + g + r) / 3;
-
-            int min_val = 0;
-            min_val = std::min(r, std::min(b,g));
-
-            s = 1 - 3*(min_val/(b + g + r));
-            if(s < 0.00001)
-                {
-                    s = 0;
-                }else if(s > 0.99999){
-                    s = 1;
-                }
-
-            if(s != 0)
-                {
-                h = 0.5 * ((r - g) + (r - b)) / sqrt(((r - g)*(r - g)) + ((r - b)*(g - b)));
-                h = acos(h);
-
-                if(b <= g)
-                    {
-                    h = h;
-                    } else{
-                    h = ((360 * 3.14159265) / 180.0) - h;
-                    }
-                }
-
-            hsi.at<cv::Vec3b>(i, j)[0] = (h * 180) / 3.14159265;
-            hsi.at<cv::Vec3b>(i, j)[1] = s*100;
-            hsi.at<cv::Vec3b>(i, j)[2] = in;
-            }
-        }
-
-    return hsi;
 }
