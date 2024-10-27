@@ -11,26 +11,26 @@ int main (int argc, char *argv[])
     /*
     QApplication app(argc, argv);
     ReadImageQt readImageQt;
-    readImageQt.showImage("images/raw/penguin.jpg");
+    readImageQt.showImage("images/raw/lion.jpg");
     readImageQt.show();
     return app.exec();
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/jam.jpg");
+    cv::Mat image = cv::imread("images/raw/lion.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
 
     image = fitImageToWindow(image, 1280, 720);
 
-    stretchColorChannels(image, 0, 255);
+    //stretchColorChannels(image, 0, 255);
 
-    transformLogarithmic(image, 0.2, 255);
+    // transformLogarithmic(image, 0.2, 255);
 
-    transformHistEqual(image, 2.0, cv::Size (8,8), "local");
+    // transformHistEqual(image, 2.0, cv::Size (8,8), "local");
 
-    // NEXT: Pipeline from Veluchamy
+    transformBGRToHSI(image, 255.0);
 
     cv::imshow("Output", image);
     cv::waitKey(0);
