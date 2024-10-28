@@ -26,14 +26,24 @@ int main (int argc, char *argv[])
 
     //stretchColorChannels(image, 0, 255);
 
-    // transformLogarithmic(image, 0.2, 255);
+    //transformLogarithmic(image, 0.2, 255);
 
-    // transformHistEqual(image, 2.0, cv::Size (8,8), "local");
+    //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
 
-    transformBGRToHSI(image, 255.0);
+    cv::Mat hsiImage = transformBGRToHSI(image, 255.0, "normalized");
 
-    cv::imshow("Output", image);
-    cv::waitKey(0);
+    std::map<double, int> origHist = computeChannelHist(hsiImage, 0);
+
+    double clippingLimit = computeClippingLimit(origHist, 255);
+
+    std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit);
+
+    std::cout << origHist.size() << ", " << clippedHist.size();
+
+    return 0;
+
+    //cv::imshow("Output", image);
+    //cv::waitKey(0);
 
 
     //WRITING

@@ -119,13 +119,25 @@ void transformHistEqual(const cv::Mat& image, double clipLimit = 40.0, cv::Size 
     cv::merge(channels, image);
 }
 
-void transformBGRToHSI(cv::Mat& image, double maxLim)
+cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "normalized")
 {      
     int rows = image.rows;
     int cols = image.cols;
     double r, g, b, h, s, i, theta;
     double eps = 1e-6;
     double invMaxLim = 1.0 / maxLim; // Precompute maxLim reciprocal for efficiency
+
+    // Initialize hsiImage depending on the scaleType of the output
+    cv::Mat hsiImage;
+
+    if (scaleType == "normalized") {
+        hsiImage = cv::Mat(rows, cols, CV_64FC3); // Use CV_64FC3 to store double values
+    } else if (scaleType == "BGR") {
+        hsiImage = cv::Mat(rows, cols, CV_8UC3); // Use CV_8UC3 to store uchar values
+    } else {
+        std::cerr << "Invalid scaleType value. Use 'normalized' or 'BGR'." << "\n";
+        return cv::Mat(); // Return an empty Mat on error
+    }
     
     // Loop through each pixel
     for (int row = 0; row < rows; ++row)
@@ -142,8 +154,8 @@ void transformBGRToHSI(cv::Mat& image, double maxLim)
             // Hue
             theta = acos((0.5 * ((r - g) + (r - b))) / (sqrt((r - g) * (r - g) + (r - b) * (g - b)) + eps));
             h = (b <= g) ? theta : (2 * CV_PI - theta);
-            h = h * 180.0 / CV_PI;  // convert from radians to degrees
-            h /= 360.0;  // normalize
+            h = h * 180.0 / CV_PI;  // Convert from radians to degrees
+            h /= 360.0;  // Normalize
 
             // Intensity
             i = (BGRsum) / 3.0;
@@ -151,15 +163,71 @@ void transformBGRToHSI(cv::Mat& image, double maxLim)
             // Saturation
             s = 1 - (3.0 * minVal / (BGRsum + eps));
 
-            // Scale HSI to the [0, maxLim] range
-            h = h * maxLim;
-            s = s * maxLim;
-            i = i * maxLim;
+            if (scaleType == "normalized")
+            {
+                // Store HSI values in normalized double format
+                hsiImage.at<cv::Vec3d>(row, col)[0] = h;
+                hsiImage.at<cv::Vec3d>(row, col)[1] = s;
+                hsiImage.at<cv::Vec3d>(row, col)[2] = i;
 
-            // Replace RGB by HSI
-            image.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(h);
-            image.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(s);
-            image.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i);
+            }
+            else if (scaleType == "BGR")
+            {
+                // Store HSI values in scaled uchar format of range [0, maxLim]
+                hsiImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(h * maxLim);
+                hsiImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(s* maxLim);
+                hsiImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i* maxLim);
+            }
+            else
+            {
+                std::cerr << "Invalid scaleType value. Use 'normalized' or 'BGR'." << "\n";
+            }
         }
     }
+    return hsiImage;
+}
+
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex)
+{
+    cv::Mat channel;
+    cv::extractChannel(image, channel, channelIndex);
+    std::map<double, int> valueCount;
+    for (int row = 0; row < channel.rows; row++)
+    {
+        for (int col = 0; col < channel.cols; col++)
+        {
+            double value = channel.at<double>(row, col);
+            valueCount[value]++;
+        }
+    }
+    
+    return valueCount;
+}
+
+double computeClippingLimit(const std::map<double, int>& channelHist, int maxLim)
+{
+    int totalValue = 0;
+    for (const auto& pair : channelHist)
+    {
+        totalValue += pair.second;
+    }
+    double clippingLimit = totalValue / maxLim;
+    return clippingLimit;
+}
+
+std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit)
+{
+    std::map<double, double> clippedChannelHist;
+    for (auto& pair : channelHist) 
+    {
+        if (pair.second >= clippingLimit) 
+        {
+            double value = pair.first;
+            double valueCount = static_cast<double>(pair.second);
+        
+            // Clip the count if it exceeds the clipping limit
+            clippedChannelHist[value] = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
+        }
+    }
+    return clippedChannelHist;
 }

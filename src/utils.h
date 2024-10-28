@@ -16,6 +16,15 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim);
 void transformHistEqual(const cv::Mat& image, double clipLimit = 40, cv::Size tileGridSize = cv::Size(8, 8), const std::string& equalType = "local");
 
 // Function to apply a BGR to HSI transformation
-void transformBGRToHSI(cv::Mat& image, double maxLim); 
+cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "normalized");
+
+// Function to compute a histogram for a certain channel
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex);
+
+// Function to compute the clipping limit for a given channel histogram
+double computeClippingLimit(const std::map<double, int>& channelHist, int maxLim);
+
+// Function to compute a clipped histogram for a certain channel, based on a clipping limit
+std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit);
 
 #endif
