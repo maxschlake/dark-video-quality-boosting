@@ -2,6 +2,8 @@
 #include <iostream>
 #include <math.h>
 #include <opencv2/imgproc.hpp>
+#include <map>
+#include <vector>
 
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight)
 {
@@ -196,22 +198,23 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex)
     {
         for (int col = 0; col < channel.cols; col++)
         {
-            double value = channel.at<double>(row, col);
+            double value = channel.at<uchar>(row, col);
             valueCount[value]++;
         }
     }
-    
+    std::cout << "Channel Size: " << channel.size() << "\n";
     return valueCount;
 }
 
-double computeClippingLimit(const std::map<double, int>& channelHist, int maxLim)
+double computeClippingLimit(const std::map<double, int>& channelHist, int L)
 {
     int totalValue = 0;
     for (const auto& pair : channelHist)
     {
         totalValue += pair.second;
     }
-    double clippingLimit = totalValue / maxLim;
+    double clippingLimit = totalValue / L;
+    //std::cout << "Clipping limit: " << clippingLimit << "\n";
     return clippingLimit;
 }
 
@@ -224,10 +227,47 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
         {
             double value = pair.first;
             double valueCount = static_cast<double>(pair.second);
+            //std::cout << value << ", " << valueCount << "\n";
         
             // Clip the count if it exceeds the clipping limit
             clippedChannelHist[value] = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
+            //std::cout << clippedChannelHist[value] << "\n";
         }
     }
     return clippedChannelHist;
+}
+
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, const std::map<double, int>& channelHist)
+{
+    std::map<double, double> PDF;
+
+    // Calculate the sum of all occurrences in the original histogram for normalization
+    int M = 0;
+    for (const auto& pair : channelHist) 
+    {
+        M += pair.second;
+    }
+
+    for (auto& pair : clippedChannelHist)
+    {
+        double value = pair.first;
+        double probMass = pair.second / M;
+        PDF[value] = probMass;
+        //std::cout << value << ", " << probMass << "\n";
+    }
+    return PDF;
+}
+
+std::map<double, double> computeCDF(const std::map<double, double>& PDF)
+{
+    std::map<double, double> CDF;
+    double cumProbMass = 0;
+    for (auto& pair : PDF)
+    {
+        double value = pair.first;
+        cumProbMass += pair.second;
+        CDF[value] = cumProbMass;
+        //std::cout << value << ", " << cumProbMass << "\n";
+    }
+    return CDF;
 }

@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <opencv2/opencv.hpp>
+#include <map>
 
 // Function to fit an image to a window
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight);
@@ -22,9 +23,15 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scal
 std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex);
 
 // Function to compute the clipping limit for a given channel histogram
-double computeClippingLimit(const std::map<double, int>& channelHist, int maxLim);
+double computeClippingLimit(const std::map<double, int>& channelHist, int L);
 
 // Function to compute a clipped histogram for a certain channel, based on a clipping limit
 std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit);
+
+// Function to compute the PDF for a certain channel, based on a clipped histogram
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, const std::map<double, int>& channelHist);
+
+// Function to compute the CDF for a certain channel, based on a PDF
+std::map<double, double> computeCDF(const std::map<double, double>& PDF);
 
 #endif

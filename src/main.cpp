@@ -29,16 +29,22 @@ int main (int argc, char *argv[])
     //transformLogarithmic(image, 0.2, 255);
 
     //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
-
-    cv::Mat hsiImage = transformBGRToHSI(image, 255.0, "normalized");
+    
+    std::cout << "Image Size: " << image.size() << "\n";
+    cv::Mat hsiImage = transformBGRToHSI(image, 255.0, "BGR");
+    std::cout << "HSI Image Size: " << hsiImage.size() << "\n";
 
     std::map<double, int> origHist = computeChannelHist(hsiImage, 0);
 
-    double clippingLimit = computeClippingLimit(origHist, 255);
+    double clippingLimit = computeClippingLimit(origHist, 256);
 
     std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit);
 
-    std::cout << origHist.size() << ", " << clippedHist.size();
+    std::map<double, double> PDF = computePDF(clippedHist, origHist);
+
+    std::map<double, double> CDF = computeCDF(PDF);
+
+    std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
 
     return 0;
 
