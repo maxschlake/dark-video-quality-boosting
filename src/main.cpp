@@ -24,15 +24,15 @@ int main (int argc, char *argv[])
 
     image = fitImageToWindow(image, 1280, 720);
 
-    //stretchColorChannels(image, 0, 255);
+    const int L = 256;
+    //stretchColorChannels(image, 0, L - 1);
 
-    //transformLogarithmic(image, 0.2, 255);
+    //transformLogarithmic(image, 0.2, L - 1);
 
     //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
     
-    const int L = 256;
     std::cout << "Image Size: " << image.size() << "\n";
-    cv::Mat hsiImage = transformBGRToHSI(image, static_cast<double>(L - 1), "BGR");
+    cv::Mat hsiImage = transformBGRToHSI(image, L - 1, "BGR");
     std::cout << "HSI Image Size: " << hsiImage.size() << "\n";
 
     int channelIndex = 0;
@@ -62,9 +62,11 @@ int main (int argc, char *argv[])
 
     std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
 
+    cv::Mat bgrImage = transformHSIToBGR(hsiImage, L - 1, "BGR");
+
     //return 0;
 
-    cv::imshow("Output", transformedHSIImage);
+    cv::imshow("Output", bgrImage);
     cv::waitKey(0);
 
 

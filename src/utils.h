@@ -43,6 +43,9 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
 // Function to transform a channel, based on the gamma function
 cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, double> gamma, double cMax);
 
+// Function to apply an HSI to BGR transformation
+cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType = "normalized");
+
 void plotHistogram(const std::map<double, int>& histMap);
 void plotHistogram2(const std::map<double, double>& clippedHistMap);
 

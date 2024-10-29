@@ -122,7 +122,7 @@ void transformHistEqual(const cv::Mat& image, double clipLimit = 40.0, cv::Size 
     cv::merge(channels, image);
 }
 
-cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "normalized")
+cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& outputScaleType = "BGR")
 {      
     int rows = image.rows;
     int cols = image.cols;
@@ -132,16 +132,9 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scal
 
     // Initialize hsiImage depending on the scaleType of the output
     cv::Mat hsiImage;
+    int matType = (outputScaleType == "normalized") ? CV_64FC3 : CV_8UC3;
+    hsiImage = cv::Mat(rows, cols, matType);
 
-    if (scaleType == "normalized") {
-        hsiImage = cv::Mat(rows, cols, CV_64FC3); // Use CV_64FC3 to store double values
-    } else if (scaleType == "BGR") {
-        hsiImage = cv::Mat(rows, cols, CV_8UC3); // Use CV_8UC3 to store uchar values
-    } else {
-        std::cerr << "Invalid scaleType value. Use 'normalized' or 'BGR'." << "\n";
-        return cv::Mat(); // Return an empty Mat on error
-    }
-    
     // Loop through each pixel
     for (int row = 0; row < rows; ++row)
     {
@@ -166,17 +159,17 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scal
             // Saturation
             s = 1 - (3.0 * minVal / (BGRsum + eps));
 
-            if (scaleType == "normalized")
+            if (outputScaleType == "normalized")
             {
-                // Store HSI values in normalized double format
-                hsiImage.at<cv::Vec3d>(row, col)[0] = h;
+                // Store HSI values in double format of range [0, 1]
+                hsiImage.at<cv::Vec3d>(row, col)[2] = h;
                 hsiImage.at<cv::Vec3d>(row, col)[1] = s;
-                hsiImage.at<cv::Vec3d>(row, col)[2] = i;
+                hsiImage.at<cv::Vec3d>(row, col)[0] = i;
 
             }
-            else if (scaleType == "BGR")
+            else if (outputScaleType == "BGR")
             {
-                // Store HSI values in scaled uchar format of range [0, maxLim]
+                // Store HSI values in uchar format of range [0, maxLim]
                 hsiImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(h * maxLim);
                 hsiImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(s* maxLim);
                 hsiImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i* maxLim);
@@ -318,7 +311,7 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
         cumWHDF += weightedProbMass;
         double gammaMass = 1 - cumWHDF;
         gamma[value] = gammaMass;
-        std::cout << value << ", " << gammaMass << "\n";
+        //std::cout << value << ", " << gammaMass << "\n";
     }
     return gamma;
 }
@@ -346,11 +339,66 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
     return transformedImage;
 }
 
+cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType = "BGR") 
+{
+    int rows = image.rows;
+    int cols = image.cols;
+    double r, g, b, h, s, i;
+
+    // Initialize bgrImage and obtain scale factor depending on the scaleType of the input
+    cv::Mat bgrImage = cv::Mat(rows, cols, CV_8UC3);
+    double scaleFactor = (inputScaleType == "normalized") ? 1.0 : 1.0 / maxLim;
+
+    for (int row = 0; row < rows; ++row) {
+        for (int col = 0; col < cols; ++col) {
+            h = image.at<cv::Vec3b>(row, col)[2] * scaleFactor * 360.0;     // Hue [0, 360]
+            s = image.at<cv::Vec3b>(row, col)[1] * scaleFactor;             // Saturation [0, 1]
+            i = image.at<cv::Vec3b>(row, col)[0] * scaleFactor;             // Intensity [0, 1]
+
+            double h2 = 0;
+            double convFactor = CV_PI / 180.0;
+
+            if (h < 120) 
+            {   // RG Sector
+                b = i * (1 - s);
+                r = i * (1 + (s * cos(h * convFactor) / cos((60 - h) * convFactor)));
+                g = 3 * i - (r + b);
+            } 
+            else if (h < 240) 
+            {   // GB Sector
+                h2 = h - 120;
+                r = i * (1 - s);
+                g = i * (1 + (s * cos(h2 * convFactor) / cos((60 - h2) * convFactor)));
+                b = 3 * i - (r + g);
+            } 
+            else 
+            {   // BR Sector
+                h2 = h - 240;
+                g = i * (1 - s);
+                b = i * (1 + (s * cos(h2 * convFactor) / cos((60 - h2) * convFactor)));
+                r = 3 * i - (g + b);
+            }
+
+            // Store BGR values in uchar format of range [0, maxLim]
+            bgrImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(b * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(g * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(r * maxLim);
+        }
+    }
+   return bgrImage;
+}
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
 // Function to plot a histogram from a value-count map
 void plotHistogram(const std::map<double, int>& histMap) {
     int histSize = histMap.size();  // Number of unique intensity values
-    int histHeight = 400;           // Height of the histogram image
-    int histWidth = 512;            // Width of the histogram image
+    int histHeight = 600;           // Height of the histogram image
+    int histWidth = 800;            // Width of the histogram image
     int binWidth = cvRound((double)histWidth / histSize);
 
     // Create a blank image for the histogram plot
@@ -384,8 +432,8 @@ void plotHistogram(const std::map<double, int>& histMap) {
 // Function to plot a clipped histogram from a value-count map with double precision
 void plotHistogram2(const std::map<double, double>& clippedHistMap) {
     int histSize = clippedHistMap.size();  // Number of unique intensity values
-    int histHeight = 400;                  // Height of the histogram image
-    int histWidth = 512;                   // Width of the histogram image
+    int histHeight = 600;                  // Height of the histogram image
+    int histWidth = 800;                   // Width of the histogram image
     int binWidth = cvRound((double)histWidth / histSize);
 
     // Create a blank image for the histogram plot
