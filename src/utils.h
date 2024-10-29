@@ -37,7 +37,11 @@ std::map<double, double> computeCDF(const std::map<double, double>& PDF);
 // Function to compute the weighted histogram distribution (WHD) function and WHDFSum, based on PDF, CDF, pmax, pmin and cMax
 std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax);
 
-// Function to compute 
+// Function to compute Gammabased on the weighted histogram distribution (WHD) function, WHDFSum and cMax
+std::map<double, double> computeGamma(const std::map<double, double>& WHDF, double WHDFSum, double cMax);
+
+// Function to transform a channel, based on the gamma function
+cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, double> gamma, double cMax);
 
 void plotHistogram(const std::map<double, int>& histMap);
 void plotHistogram2(const std::map<double, double>& clippedHistMap);

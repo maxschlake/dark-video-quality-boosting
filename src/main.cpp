@@ -17,14 +17,12 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/path.jpg");
+    cv::Mat image = cv::imread("images/raw/lion.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
 
     image = fitImageToWindow(image, 1280, 720);
-
-    const int L = 256;
 
     //stretchColorChannels(image, 0, 255);
 
@@ -32,19 +30,20 @@ int main (int argc, char *argv[])
 
     //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
     
+    const int L = 256;
     std::cout << "Image Size: " << image.size() << "\n";
-    cv::Mat hsiImage = transformBGRToHSI(image, 255.0, "BGR");
+    cv::Mat hsiImage = transformBGRToHSI(image, static_cast<double>(L - 1), "BGR");
     std::cout << "HSI Image Size: " << hsiImage.size() << "\n";
 
+    int channelIndex = 0;
     double cMax;
-    std::map<double, int> origHist = computeChannelHist(hsiImage, 0, L, cMax);
+    std::map<double, int> origHist = computeChannelHist(hsiImage, channelIndex, L, cMax);
 
     //plotHistogram(origHist);
 
-    double clippingLimit = computeClippingLimit(origHist, 256);
+    double clippingLimit = computeClippingLimit(origHist, L);
 
     int M;
-
     std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit, M);
 
     //plotHistogram2(clippedHist);
@@ -57,12 +56,16 @@ int main (int argc, char *argv[])
     double WHDFSum;
     std::map<double, double> WHDF = computeWHDF(PDF, CDF, WHDFSum, pmax, pmin, cMax);
 
+    std::map<double, double> gamma = computeGamma(WHDF, WHDFSum, cMax);
+
+    cv::Mat transformedHSIImage = transformChannel(hsiImage, channelIndex, gamma, cMax);
+
     std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
 
-    return 0;
+    //return 0;
 
-    //cv::imshow("Output", image);
-    //cv::waitKey(0);
+    cv::imshow("Output", transformedHSIImage);
+    cv::waitKey(0);
 
 
     //WRITING

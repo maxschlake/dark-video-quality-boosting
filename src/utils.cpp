@@ -300,10 +300,50 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
         {
             WHDFSum += weightedProbMass;
         }
-        std::cout << value << ", " << weightedProbMass << "\n";
-        std::cout << value << ", " << WHDFSum << "\n";
+        //std::cout << value << ", " << weightedProbMass << "\n";
+        //std::cout << value << ", " << WHDFSum << "\n";
     }
     return WHDF;
+}
+
+std::map<double, double> computeGamma(const std::map<double, double>& WHDF, double WHDFSum, double cMax)
+{
+    // Compute weighted CDF
+    std::map<double, double> gamma;
+    double cumWHDF = 0.0;
+    for (auto& pair : WHDF)
+    {
+        double value = pair.first;
+        double weightedProbMass = pair.second;
+        cumWHDF += weightedProbMass;
+        double gammaMass = 1 - cumWHDF;
+        gamma[value] = gammaMass;
+        std::cout << value << ", " << gammaMass << "\n";
+    }
+    return gamma;
+}
+
+cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, double> gamma, double cMax)
+{
+    std::vector<cv::Mat> channels;
+    cv::split(image, channels);
+
+    cv::Mat channel = channels[channelIndex];
+    int rows = channel.rows;
+    int cols = channel.cols;
+
+    for (int row = 0; row < rows; ++row)
+    {
+        for (int col = 0; col < cols; ++col)
+        {
+            uchar value = channel.at<uchar>(row, col);
+            double transformedValue = std::round(pow((value / cMax), gamma[value]));
+            channel.at<uchar>(row, col) = static_cast<uchar>(transformedValue);
+        }
+    }
+    cv::Mat transformedImage;
+    cv::merge(channels, transformedImage);
+    return transformedImage;
 }
 
 // Function to plot a histogram from a value-count map
