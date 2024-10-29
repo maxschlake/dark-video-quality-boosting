@@ -24,6 +24,8 @@ int main (int argc, char *argv[])
 
     image = fitImageToWindow(image, 1280, 720);
 
+    const int L = 256;
+
     //stretchColorChannels(image, 0, 255);
 
     //transformLogarithmic(image, 0.2, 255);
@@ -34,7 +36,8 @@ int main (int argc, char *argv[])
     cv::Mat hsiImage = transformBGRToHSI(image, 255.0, "BGR");
     std::cout << "HSI Image Size: " << hsiImage.size() << "\n";
 
-    std::map<double, int> origHist = computeChannelHist(hsiImage, 0);
+    double cMax;
+    std::map<double, int> origHist = computeChannelHist(hsiImage, 0, L, cMax);
 
     //plotHistogram(origHist);
 
@@ -46,9 +49,13 @@ int main (int argc, char *argv[])
 
     //plotHistogram2(clippedHist);
 
-    std::map<double, double> PDF = computePDF(clippedHist, M);
+    double pmax, pmin;
+    std::map<double, double> PDF = computePDF(clippedHist, M, pmax, pmin);
 
     std::map<double, double> CDF = computeCDF(PDF);
+
+    double WHDFSum;
+    std::map<double, double> WHDF = computeWHDF(PDF, CDF, WHDFSum, pmax, pmin, cMax);
 
     std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
 

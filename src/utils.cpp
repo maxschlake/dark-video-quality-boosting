@@ -4,6 +4,7 @@
 #include <opencv2/imgproc.hpp>
 #include <map>
 #include <vector>
+#include <limits>
 
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight)
 {
@@ -189,23 +190,33 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scal
     return hsiImage;
 }
 
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex)
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax)
 {
     cv::Mat channel;
     cv::extractChannel(image, channel, channelIndex);
 
-    std::map<double, int> valueCount;
+    // Initialize histogram
+    std::map<double, int> channelHist;
+    for (int c = 0; c < L; ++c)
+    {
+        channelHist[c] = 0;
+    }
+
+    // Populate the histogram counts with the empirical counts from the channel and collect the maximum value
+    cMax = 0;
     for (int row = 0; row < channel.rows; row++)
     {
         for (int col = 0; col < channel.cols; col++)
         {
             double value = channel.at<uchar>(row, col);
-            valueCount[value]++;
+            channelHist[value]++;
+            cMax = std::max(cMax, static_cast<double>(value));
         }
     }
     std::cout << "Channel Size: " << channel.size() << "\n";
-    std::cout << "Unique values in histogram: " << valueCount.size() << "\n";
-    return valueCount;
+    std::cout << "Unique values in histogram: " << channelHist.size() << "\n";
+    std::cout << "cMax: " << cMax << "\n";
+    return channelHist;
 }
 
 double computeClippingLimit(const std::map<double, int>& channelHist, int L)
@@ -240,15 +251,21 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
     return clippedChannelHist;
 }
 
-std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M)
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M, double& pmax, double& pmin)
 {
     std::map<double, double> PDF;
+
+    pmax = std::numeric_limits<double>::lowest();
+    pmin = std::numeric_limits<double>::max();
+
     for (auto& pair : clippedChannelHist)
     {
         double value = pair.first;
         double probMass = pair.second / static_cast<double>(M);
         PDF[value] = probMass;
         //std::cout << value << ", " << probMass << "\n";
+        pmax = std::max(pmax, probMass);
+        pmin = std::min(pmin, probMass);
     }
     return PDF;
 }
@@ -262,9 +279,31 @@ std::map<double, double> computeCDF(const std::map<double, double>& PDF)
         double value = pair.first;
         cumProbMass += pair.second;
         CDF[value] = cumProbMass;
-        std::cout << value << ", " << cumProbMass << "\n";
+        //std::cout << value << ", " << cumProbMass << "\n";
     }
     return CDF;
+}
+
+std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax)
+{
+    double pRange = pmax - pmin;
+    std::map<double, double> WHDF;
+    WHDFSum = 0.0;
+    for (auto& pair : PDF)
+    {
+        double value = pair.first;
+        double probMass = pair.second;
+        double alpha = CDF.at(value);
+        double weightedProbMass = pmax * pow(((probMass - pmin) / (pRange)), alpha);
+        WHDF[value] = weightedProbMass;
+        if (value < cMax)
+        {
+            WHDFSum += weightedProbMass;
+        }
+        std::cout << value << ", " << weightedProbMass << "\n";
+        std::cout << value << ", " << WHDFSum << "\n";
+    }
+    return WHDF;
 }
 
 // Function to plot a histogram from a value-count map

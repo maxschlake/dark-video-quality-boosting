@@ -20,7 +20,7 @@ void transformHistEqual(const cv::Mat& image, double clipLimit = 40, cv::Size ti
 cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "normalized");
 
 // Function to compute a histogram for a certain channel
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex);
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax);
 
 // Function to compute the clipping limit for a given channel histogram
 double computeClippingLimit(const std::map<double, int>& channelHist, int L);
@@ -29,10 +29,15 @@ double computeClippingLimit(const std::map<double, int>& channelHist, int L);
 std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M);
 
 // Function to compute the PDF for a certain channel, based on a clipped histogram
-std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M);
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M, double& pmax, double& pmin);
 
 // Function to compute the CDF for a certain channel, based on a PDF
 std::map<double, double> computeCDF(const std::map<double, double>& PDF);
+
+// Function to compute the weighted histogram distribution (WHD) function and WHDFSum, based on PDF, CDF, pmax, pmin and cMax
+std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax);
+
+// Function to compute 
 
 void plotHistogram(const std::map<double, int>& histMap);
 void plotHistogram2(const std::map<double, double>& clippedHistMap);
