@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/lion.jpg");
+    cv::Mat image = cv::imread("images/raw/path.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
@@ -36,11 +36,17 @@ int main (int argc, char *argv[])
 
     std::map<double, int> origHist = computeChannelHist(hsiImage, 0);
 
+    //plotHistogram(origHist);
+
     double clippingLimit = computeClippingLimit(origHist, 256);
 
-    std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit);
+    int M;
 
-    std::map<double, double> PDF = computePDF(clippedHist, origHist);
+    std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit, M);
+
+    //plotHistogram2(clippedHist);
+
+    std::map<double, double> PDF = computePDF(clippedHist, M);
 
     std::map<double, double> CDF = computeCDF(PDF);
 

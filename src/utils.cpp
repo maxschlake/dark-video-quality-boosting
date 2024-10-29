@@ -193,6 +193,7 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex)
 {
     cv::Mat channel;
     cv::extractChannel(image, channel, channelIndex);
+
     std::map<double, int> valueCount;
     for (int row = 0; row < channel.rows; row++)
     {
@@ -203,6 +204,7 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex)
         }
     }
     std::cout << "Channel Size: " << channel.size() << "\n";
+    std::cout << "Unique values in histogram: " << valueCount.size() << "\n";
     return valueCount;
 }
 
@@ -218,40 +220,33 @@ double computeClippingLimit(const std::map<double, int>& channelHist, int L)
     return clippingLimit;
 }
 
-std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit)
+std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M)
 {
     std::map<double, double> clippedChannelHist;
+    M = 0;
     for (auto& pair : channelHist) 
     {
-        if (pair.second >= clippingLimit) 
-        {
-            double value = pair.first;
-            double valueCount = static_cast<double>(pair.second);
-            //std::cout << value << ", " << valueCount << "\n";
+        double value = pair.first;
+        double valueCount = static_cast<double>(pair.second);
+        //std::cout << value << ", " << valueCount << "\n";
+    
+        // Clip the count if it exceeds the clipping limit
+        double clippedValueCount = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
+        clippedChannelHist[value] = clippedValueCount;
         
-            // Clip the count if it exceeds the clipping limit
-            clippedChannelHist[value] = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
-            //std::cout << clippedChannelHist[value] << "\n";
-        }
+        M += clippedValueCount;
+        //std::cout << clippedChannelHist[value] << "\n";
     }
     return clippedChannelHist;
 }
 
-std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, const std::map<double, int>& channelHist)
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M)
 {
     std::map<double, double> PDF;
-
-    // Calculate the sum of all occurrences in the original histogram for normalization
-    int M = 0;
-    for (const auto& pair : channelHist) 
-    {
-        M += pair.second;
-    }
-
     for (auto& pair : clippedChannelHist)
     {
         double value = pair.first;
-        double probMass = pair.second / M;
+        double probMass = pair.second / static_cast<double>(M);
         PDF[value] = probMass;
         //std::cout << value << ", " << probMass << "\n";
     }
@@ -267,7 +262,78 @@ std::map<double, double> computeCDF(const std::map<double, double>& PDF)
         double value = pair.first;
         cumProbMass += pair.second;
         CDF[value] = cumProbMass;
-        //std::cout << value << ", " << cumProbMass << "\n";
+        std::cout << value << ", " << cumProbMass << "\n";
     }
     return CDF;
+}
+
+// Function to plot a histogram from a value-count map
+void plotHistogram(const std::map<double, int>& histMap) {
+    int histSize = histMap.size();  // Number of unique intensity values
+    int histHeight = 400;           // Height of the histogram image
+    int histWidth = 512;            // Width of the histogram image
+    int binWidth = cvRound((double)histWidth / histSize);
+
+    // Create a blank image for the histogram plot
+    cv::Mat histImage(histHeight, histWidth, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    // Find max count to normalize histogram heights
+    int maxCount = 0;
+    for (const auto& pair : histMap) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+        }
+    }
+
+    // Draw histogram bins
+    int i = 0;
+    for (const auto& pair : histMap) {
+        int binHeight = cvRound((double)pair.second / maxCount * histHeight);
+        cv::rectangle(histImage, 
+                      cv::Point(i * binWidth, histHeight), 
+                      cv::Point((i + 1) * binWidth, histHeight - binHeight), 
+                      cv::Scalar(0, 0, 0), 
+                      cv::FILLED);
+        i++;
+    }
+
+    // Display histogram
+    cv::imshow("Histogram", histImage);
+    cv::waitKey(0);
+}
+
+// Function to plot a clipped histogram from a value-count map with double precision
+void plotHistogram2(const std::map<double, double>& clippedHistMap) {
+    int histSize = clippedHistMap.size();  // Number of unique intensity values
+    int histHeight = 400;                  // Height of the histogram image
+    int histWidth = 512;                   // Width of the histogram image
+    int binWidth = cvRound((double)histWidth / histSize);
+
+    // Create a blank image for the histogram plot
+    cv::Mat histImage(histHeight, histWidth, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    // Find max count to normalize histogram heights
+    double maxCount = 0.0;
+    for (const auto& pair : clippedHistMap) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+        }
+    }
+    std::cout << "maxCount :" << maxCount << "\n";
+
+    // Draw histogram bins
+    int i = 0;
+    for (const auto& pair : clippedHistMap) {
+        int binHeight = cvRound((pair.second / maxCount) * histHeight);
+        cv::rectangle(histImage, 
+                      cv::Point(i * binWidth, histHeight), 
+                      cv::Point((i + 1) * binWidth, histHeight - binHeight), 
+                      cv::Scalar(0, 0, 0), 
+                      cv::FILLED);
+        i++;
+    }
+
+    // Display histogram
+    cv::imshow("Clipped Histogram", histImage);
+    cv::waitKey(0);
 }
