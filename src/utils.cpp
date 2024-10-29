@@ -311,7 +311,7 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
         cumWHDF += weightedProbMass;
         double gammaMass = 1 - cumWHDF;
         gamma[value] = gammaMass;
-        //std::cout << value << ", " << gammaMass << "\n";
+        //std::cout << "value: " << value << ", gammaMass: " << gammaMass << "\n";
     }
     return gamma;
 }
@@ -329,9 +329,10 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
     {
         for (int col = 0; col < cols; ++col)
         {
-            uchar value = channel.at<uchar>(row, col);
-            double transformedValue = std::round(pow((value / cMax), gamma[value]));
+            double value = channel.at<uchar>(row, col);
+            double transformedValue = pow((value / cMax), gamma[value]);
             channel.at<uchar>(row, col) = static_cast<uchar>(transformedValue);
+            //std::cout << "value: " << value << ", transformedValue: " << transformedValue << "\n";
         }
     }
     cv::Mat transformedImage;
@@ -354,6 +355,7 @@ cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inpu
             h = image.at<cv::Vec3b>(row, col)[2] * scaleFactor * 360.0;     // Hue [0, 360]
             s = image.at<cv::Vec3b>(row, col)[1] * scaleFactor;             // Saturation [0, 1]
             i = image.at<cv::Vec3b>(row, col)[0] * scaleFactor;             // Intensity [0, 1]
+            //std::cout << "h: " << h << ", s: " << s << ", i: " << i << "\n";
 
             double h2 = 0;
             double convFactor = CV_PI / 180.0;

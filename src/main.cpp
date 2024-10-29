@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/lion.jpg");
+    cv::Mat image = cv::imread("images/raw/path.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
@@ -62,7 +62,7 @@ int main (int argc, char *argv[])
 
     std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
 
-    cv::Mat bgrImage = transformHSIToBGR(hsiImage, L - 1, "BGR");
+    cv::Mat bgrImage = transformHSIToBGR(transformedHSIImage, L - 1, "BGR");
 
     //return 0;
 
