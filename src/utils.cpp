@@ -239,9 +239,8 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
         // Clip the count if it exceeds the clipping limit
         double clippedValueCount = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
         clippedChannelHist[value] = clippedValueCount;
-        
         M += clippedValueCount;
-        //std::cout << clippedChannelHist[value] << "\n";
+        //std::cout << "value: " << value << ", clippedValueCount: " << clippedValueCount << "\n";
     }
     std::cout << "M: " << M << "\n";
     std::cout << "Unique values in clipped histogram: " << clippedChannelHist.size() << "\n";
@@ -311,11 +310,14 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
     for (auto& pair : WHDF)
     {
         double value = pair.first;
-        double weightedProbMass = pair.second;
-        cumWHDF += weightedProbMass;
-        double gammaMass = 1 - cumWHDF;
-        gamma[value] = gammaMass;
-        //std::cout << "value: " << value << ", gammaMass: " << gammaMass << ", cumWHDF: " << cumWHDF << "\n";
+        if (value < cMax)
+        {
+            double weightedProbMass = pair.second;
+            cumWHDF += weightedProbMass / WHDFSum;
+            double gammaMass = std::max(0.0, 1 - cumWHDF);
+            gamma[value] = gammaMass;
+            std::cout << "value: " << value << ", gammaMass: " << gammaMass << ", cumWHDF: " << cumWHDF << "\n";
+        }
     }
     return gamma;
 }
@@ -334,7 +336,7 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
         for (int col = 0; col < cols; ++col)
         {
             double value = channel.at<uchar>(row, col);
-            double transformedValue = pow((value / cMax), gamma[value]);
+            double transformedValue = round(pow((value / cMax), gamma[value]) * cMax);
             channel.at<uchar>(row, col) = static_cast<uchar>(transformedValue);
             //std::cout << "value: " << value << ", transformedValue: " << transformedValue << "\n";
         }
