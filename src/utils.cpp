@@ -42,6 +42,7 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
         // find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);
+        double valRange = maxVal - minVal;
 
         // Stretch the channel
         for (int y = 0; y < image.rows; ++y)
@@ -50,7 +51,7 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
             {
                 // Apply stretching formula
                 uchar oldVal = channel.at<uchar>(y, x);
-                uchar newVal = static_cast<uchar>((oldVal - minVal) * (maxLim - minLim) / (maxVal - minVal) + minLim);
+                uchar newVal = static_cast<uchar>((oldVal - minVal) * (maxLim - minLim) / valRange + minLim);
                 channel.at<uchar>(y, x) = newVal;
             }
         }
@@ -204,10 +205,11 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex,
             double value = channel.at<uchar>(row, col);
             channelHist[value]++;
             cMax = std::max(cMax, static_cast<double>(value));
+            //std::cout << "value: "<< value << ", valueCount: " << channelHist[value] << "\n";
         }
     }
     std::cout << "Channel Size: " << channel.size() << "\n";
-    std::cout << "Unique values in histogram: " << channelHist.size() << "\n";
+    std::cout << "Unique values in original histogram: " << channelHist.size() << "\n";
     std::cout << "cMax: " << cMax << "\n";
     return channelHist;
 }
@@ -220,7 +222,7 @@ double computeClippingLimit(const std::map<double, int>& channelHist, int L)
         totalValue += pair.second;
     }
     double clippingLimit = totalValue / L;
-    //std::cout << "Clipping limit: " << clippingLimit << "\n";
+    std::cout << "Clipping limit: " << clippingLimit << "\n";
     return clippingLimit;
 }
 
@@ -241,6 +243,8 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
         M += clippedValueCount;
         //std::cout << clippedChannelHist[value] << "\n";
     }
+    std::cout << "M: " << M << "\n";
+    std::cout << "Unique values in clipped histogram: " << clippedChannelHist.size() << "\n";
     return clippedChannelHist;
 }
 
@@ -256,10 +260,11 @@ std::map<double, double> computePDF(const std::map<double, double>& clippedChann
         double value = pair.first;
         double probMass = pair.second / static_cast<double>(M);
         PDF[value] = probMass;
-        //std::cout << value << ", " << probMass << "\n";
         pmax = std::max(pmax, probMass);
         pmin = std::min(pmin, probMass);
+        //std::cout << "value: " << value << ", probMass: " << probMass << "\n";
     }
+    std::cout << "pmax: " << pmax << ", pmin: " << pmin <<"\n";
     return PDF;
 }
 
@@ -293,8 +298,7 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
         {
             WHDFSum += weightedProbMass;
         }
-        //std::cout << value << ", " << weightedProbMass << "\n";
-        //std::cout << value << ", " << WHDFSum << "\n";
+        //std::cout << "value:" << value << ", probMass: " << probMass << ", alpha: " << alpha << ", weightedProbMass: " << weightedProbMass << ", WHDFSum: " << WHDFSum << "\n";
     }
     return WHDF;
 }
@@ -311,7 +315,7 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
         cumWHDF += weightedProbMass;
         double gammaMass = 1 - cumWHDF;
         gamma[value] = gammaMass;
-        //std::cout << "value: " << value << ", gammaMass: " << gammaMass << "\n";
+        //std::cout << "value: " << value << ", gammaMass: " << gammaMass << ", cumWHDF: " << cumWHDF << "\n";
     }
     return gamma;
 }
@@ -390,79 +394,3 @@ cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inpu
    return bgrImage;
 }
 
-
-
-
-
-
-///////////////////////////////////////////////////////////
-// Function to plot a histogram from a value-count map
-void plotHistogram(const std::map<double, int>& histMap) {
-    int histSize = histMap.size();  // Number of unique intensity values
-    int histHeight = 600;           // Height of the histogram image
-    int histWidth = 800;            // Width of the histogram image
-    int binWidth = cvRound((double)histWidth / histSize);
-
-    // Create a blank image for the histogram plot
-    cv::Mat histImage(histHeight, histWidth, CV_8UC3, cv::Scalar(255, 255, 255));
-
-    // Find max count to normalize histogram heights
-    int maxCount = 0;
-    for (const auto& pair : histMap) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
-        }
-    }
-
-    // Draw histogram bins
-    int i = 0;
-    for (const auto& pair : histMap) {
-        int binHeight = cvRound((double)pair.second / maxCount * histHeight);
-        cv::rectangle(histImage, 
-                      cv::Point(i * binWidth, histHeight), 
-                      cv::Point((i + 1) * binWidth, histHeight - binHeight), 
-                      cv::Scalar(0, 0, 0), 
-                      cv::FILLED);
-        i++;
-    }
-
-    // Display histogram
-    cv::imshow("Histogram", histImage);
-    cv::waitKey(0);
-}
-
-// Function to plot a clipped histogram from a value-count map with double precision
-void plotHistogram2(const std::map<double, double>& clippedHistMap) {
-    int histSize = clippedHistMap.size();  // Number of unique intensity values
-    int histHeight = 600;                  // Height of the histogram image
-    int histWidth = 800;                   // Width of the histogram image
-    int binWidth = cvRound((double)histWidth / histSize);
-
-    // Create a blank image for the histogram plot
-    cv::Mat histImage(histHeight, histWidth, CV_8UC3, cv::Scalar(255, 255, 255));
-
-    // Find max count to normalize histogram heights
-    double maxCount = 0.0;
-    for (const auto& pair : clippedHistMap) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
-        }
-    }
-    std::cout << "maxCount :" << maxCount << "\n";
-
-    // Draw histogram bins
-    int i = 0;
-    for (const auto& pair : clippedHistMap) {
-        int binHeight = cvRound((pair.second / maxCount) * histHeight);
-        cv::rectangle(histImage, 
-                      cv::Point(i * binWidth, histHeight), 
-                      cv::Point((i + 1) * binWidth, histHeight - binHeight), 
-                      cv::Scalar(0, 0, 0), 
-                      cv::FILLED);
-        i++;
-    }
-
-    // Display histogram
-    cv::imshow("Clipped Histogram", histImage);
-    cv::waitKey(0);
-}

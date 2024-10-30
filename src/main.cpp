@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/path.jpg");
+    cv::Mat image = cv::imread("images/raw/jam.jpg");
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
     image = fitImageToWindow(image, 1280, 720);
 
     const int L = 256;
-    //stretchColorChannels(image, 0, L - 1);
+    stretchColorChannels(image, 0, L - 1);
 
     //transformLogarithmic(image, 0.2, L - 1);
 
@@ -46,7 +46,7 @@ int main (int argc, char *argv[])
     int M;
     std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit, M);
 
-    //plotHistogram2(clippedHist);
+    //plotHistogram(clippedHist);
 
     double pmax, pmin;
     std::map<double, double> PDF = computePDF(clippedHist, M, pmax, pmin);
