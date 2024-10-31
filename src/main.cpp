@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
     image = fitImageToWindow(image, 1280, 720);
 
     const double L = 256.0;
-    stretchColorChannels(image, 0, L - 1);
+    //stretchColorChannels(image, 0, L - 1);
 
     //transformLogarithmic(image, 0.2, L - 1);
 
@@ -66,8 +66,17 @@ int main (int argc, char *argv[])
 
     //return 0;
 
-    cv::imshow("Output", bgrImage);
-    cv::waitKey(0);
+    //cv::imshow("Output", image);
+    //cv::waitKey(0);
+    
+    WriteImage writer;
+    bool success = writer.saveImage(bgrImage, "images/mod/path.jpg");
+    QApplication app(argc, argv);
+    ReadImageQt readImageQt;
+    readImageQt.showImage("images/mod/path.jpg");
+    readImageQt.show();
+    return app.exec();
+    
 
 
     //WRITING

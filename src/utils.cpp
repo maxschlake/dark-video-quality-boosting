@@ -316,7 +316,7 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
             cumWHDF += weightedProbMass / WHDFSum;
             double gammaMass = std::max(0.0, 1 - cumWHDF);
             gamma[value] = gammaMass;
-            std::cout << "value: " << value << ", gammaMass: " << gammaMass << ", cumWHDF: " << cumWHDF << "\n";
+            //std::cout << "value: " << value << ", gammaMass: " << gammaMass << ", cumWHDF: " << cumWHDF << "\n";
         }
     }
     return gamma;
@@ -338,7 +338,7 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
             double value = channel.at<uchar>(row, col);
             double transformedValue = round(pow((value / cMax), gamma[value]) * cMax);
             channel.at<uchar>(row, col) = static_cast<uchar>(transformedValue);
-            //std::cout << "value: " << value << ", transformedValue: " << transformedValue << "\n";
+            //std::cout << "value: " << value << ", gammaMass: " << gamma[value] << ", transformedValue: " << transformedValue << "\n";
         }
     }
     cv::Mat transformedImage;

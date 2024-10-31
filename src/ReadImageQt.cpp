@@ -33,6 +33,9 @@ void ReadImageQt::showImage(const QString &imagePath, double scaleFactor)
             cv::resize(image, image, newSize);
         }
         
+        // Convert from BGR to RGB for accurate display in Qt
+        cv::cvtColor(image, image, cv::COLOR_BGR2RGB);
+        
         // Convert the image to QPixmap
         QImage qImage(image.data, image.cols, image.rows, image.step[0], QImage::Format_RGB888);
         labelImage->setPixmap(QPixmap::fromImage(qImage));
