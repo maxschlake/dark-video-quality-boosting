@@ -4,6 +4,9 @@
 #include <opencv2/opencv.hpp>
 #include <map>
 
+// Function to save images
+bool saveImage(const cv::Mat& image, const std::string& path);
+
 // Function to fit an image to a window
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight);
 
@@ -46,31 +49,40 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
 // Function to apply an HSI to BGR transformation
 cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType = "normalized");
 
-// Template definition for the plotHistogram function
-void calculateYAxisLabels(int maxCount, int& yMax, int& yMid) {
-    // Calculate intermediate yMax
-    int yMaxIntermediate = maxCount * 2;
+// Function to compute the y-axis labels dynamically
+void calculateYAxisLabels(int maxCount, int& yMax, int& yMid) 
+{
+    int maxCountCopy = maxCount;
+    int counter = 0;
+    while(maxCountCopy)
+    {        
+        maxCountCopy = maxCountCopy / 10;
+        counter++;
+    }
+    double factor = pow(10, counter - 1);
+    int yMaxIntermediate = maxCount + factor;
 
-    // Determine final yMax based on yMaxIntermediate
-    yMax = static_cast<int>(std::ceil(static_cast<double>(yMaxIntermediate) / 1000.0)) * 1000;
-
-    // yMid is half of yMax
+    // Determine final yMax and yMid based on yMaxIntermediate and the rounding factor
+    yMax = static_cast<int>(std::floor(static_cast<double>(yMaxIntermediate) / factor)) * factor;
     yMid = yMax / 2;
 }
 
-// Updated plotHistogram function remains the same
+// Function for histogram plotting from both std::map<double, double> and std::map<double, int>
 template <typename T>
-void plotHistogram(const std::map<double, T>& histMap) {
-    int histSize = histMap.size();   // Number of unique intensity values
-    int histHeight = 500;            // Original height of the histogram
-    int histWidth = 500;             // Width of the histogram image
-    int binWidth = cvRound(static_cast<double>(histWidth) / histSize);
+void plotHistogram(const std::map<double, T>& histMap, int L, std::string histTitle, std::string histPath, std::string filePath, int&yMax, int& yMid, int offset = 40, bool recalc = true, bool show = false) 
+{
+    int histSize = histMap.size();          // Number of unique intensity values
+    int outputSize = 600;                   // Fixed size for square output canvas
+    int histHeight = outputSize - 2 * offset; // Histogram height, adjusted within the square output
+    int binWidth = cvRound(static_cast<double>(histHeight) / histSize); // Width of each bin based on height
 
-    // Increase height for more space above the histogram
-    int additionalHeight = 120;  // Increase space above the histogram for yMax label
-    cv::Mat histImage(histHeight + additionalHeight + 60, histWidth + 60, CV_8UC3, cv::Scalar(255, 255, 255));
+    // Calculate the histogram width based on bin width to maintain the square shape
+    int histWidth = binWidth * histSize;
 
-    // Find the max count to normalize histogram heights and increase for buffer
+    // Adjust canvas to be square with padding
+    cv::Mat histImage(outputSize, outputSize, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    // Find the max count to normalize histogram heights
     T maxCount = 0;
     for (const auto& pair : histMap) {
         if (pair.second > maxCount) {
@@ -78,36 +90,47 @@ void plotHistogram(const std::map<double, T>& histMap) {
         }
     }
 
-    // Calculate yMax and yMid
-    int yMax, yMid;
-    calculateYAxisLabels(static_cast<int>(maxCount), yMax, yMid);
+    // Calculate yMax and yMid (if requested) and set additional strings
+    std::string suffix;
+    std::string histTitleDetail;
+    if (recalc)
+    {
+        calculateYAxisLabels(static_cast<int>(maxCount), yMax, yMid);
+        suffix = "_HSITransformed";
+        histTitleDetail = "Transformed intensity histogram: ";
+    }
+    else
+    {
+        suffix = "_HSIOriginal";
+        histTitleDetail = "Original intensity histogram: ";
+    }
 
     // Draw histogram bins in dark blue
     int i = 0;
     for (const auto& pair : histMap) {
-        int binHeight = cvRound(static_cast<double>(pair.second) / maxCount * histHeight);
+        int binHeight = cvRound(static_cast<double>(pair.second) / yMax * histHeight);
         cv::rectangle(histImage,
-                      cv::Point(i * binWidth + 40, histHeight + additionalHeight),  // Adjusted Y position for more space
-                      cv::Point((i + 1) * binWidth + 40, (histHeight + additionalHeight) - binHeight),
+                      cv::Point(i * binWidth + offset, histHeight + offset),  // Shifted starting point
+                      cv::Point((i + 1) * binWidth + offset, (histHeight + offset) - binHeight),
                       cv::Scalar(139, 0, 0), cv::FILLED);  // Dark blue color for bars
         i++;
     }
 
     // Draw X-axis ticks and labels
     int tickInterval = 50;  // Interval for x-axis ticks
-    for (int x = 0; x <= histWidth; x += tickInterval * histWidth / 256) {
-        int intensityValue = (x * 256 / histWidth);  // Adjusted to map correctly to intensity values
+    for (int x = 0; x <= histWidth; x += tickInterval * histWidth / L) {
+        int intensityValue = (x * L / histWidth);  // Adjusted to map correctly to intensity values
         if (intensityValue % 50 == 0) {  // Draw labels at multiples of 50
-            cv::line(histImage, cv::Point(x + 40, histHeight + additionalHeight), cv::Point(x + 40, histHeight + additionalHeight + 5), cv::Scalar(0, 0, 0), 1);
-            cv::putText(histImage, std::to_string(intensityValue), cv::Point(x + 30, histHeight + additionalHeight + 20), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
+            cv::line(histImage, cv::Point(x + offset, histHeight + offset), cv::Point(x + offset, histHeight + offset + 5), cv::Scalar(0, 0, 0), 1);
+            cv::putText(histImage, std::to_string(intensityValue), cv::Point(x + offset - 10, histHeight + offset + 20), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
         }
     }
 
     // Add explicit tick marks at 100 and 200
     for (int intensityValue : {100, 200}) {
-        int x = intensityValue * histWidth / 256;  // Mapping intensity value to x-coordinate
-        cv::line(histImage, cv::Point(x + 40, histHeight + additionalHeight), cv::Point(x + 40, histHeight + additionalHeight + 5), cv::Scalar(0, 0, 0), 1);
-        cv::putText(histImage, std::to_string(intensityValue), cv::Point(x + 30, histHeight + additionalHeight + 20), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
+        int x = intensityValue * histWidth / L;  // Mapping intensity value to x-coordinate
+        cv::line(histImage, cv::Point(x + offset, histHeight + offset), cv::Point(x + offset, histHeight + offset + 5), cv::Scalar(0, 0, 0), 1);
+        cv::putText(histImage, std::to_string(intensityValue), cv::Point(x + offset - 10, histHeight + offset + 20), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
     }
 
     // Set the tick values based on calculated yMax and yMid
@@ -116,22 +139,32 @@ void plotHistogram(const std::map<double, T>& histMap) {
     // Draw Y-axis ticks and labels
     for (int frequencyValue : yTicks) {
         // Calculate the Y position for each tick
-        int y = (histHeight + additionalHeight) - (frequencyValue * (histHeight + additionalHeight) / yMax); // Map frequency to Y coordinate
-        if (y >= 0 && y <= (histHeight + additionalHeight)) { // Ensure y position is within bounds
-            cv::line(histImage, cv::Point(35, y), cv::Point(40, y), cv::Scalar(0, 0, 0), 1);
-            cv::putText(histImage, std::to_string(frequencyValue), cv::Point(5, y + 5), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
+        int y = (histHeight) - (frequencyValue * (histHeight) / yMax); // Map frequency to Y coordinate
+        if (y >= 0 && y <= (histHeight)) { // Ensure y position is within bounds
+            cv::line(histImage, cv::Point(offset - 5, y + offset), cv::Point(offset, y + offset), cv::Scalar(0, 0, 0), 1);
+            cv::putText(histImage, std::to_string(frequencyValue), cv::Point(5, y + offset + 5), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
         }
     }
 
-    // Draw axis rectangle for histogram
-    cv::rectangle(histImage, cv::Point(40, 0), cv::Point(histWidth + 40, histHeight + additionalHeight), cv::Scalar(0, 0, 0), 1);
+    // Draw axis rectangle for histogram, fitting it to the histogram's actual width and height
+    cv::rectangle(histImage, cv::Point(offset, offset), cv::Point(histWidth + offset, histHeight + offset), cv::Scalar(0, 0, 0), 1);
 
     // Add X-axis label
-    cv::putText(histImage, "Intensity", cv::Point(histWidth / 2 + 20, histHeight + additionalHeight + 50), cv::FONT_HERSHEY_DUPLEX, 0.5, cv::Scalar(0, 0, 0), 1);
+    cv::putText(histImage, "Intensity", cv::Point(histWidth / 2 + offset - 20, histHeight + offset + 33), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
 
+    // Add title
+    cv::putText(histImage, histTitleDetail + filePath, cv::Point(histWidth / 6, 34), cv::FONT_HERSHEY_DUPLEX, 0.6, cv::Scalar(0, 0, 0), 1);
+
+    // Save histogram
+    std::string histfilePath = histPath + histTitle + suffix + ".jpg";
+    saveImage(histImage, histfilePath);
+    
     // Display histogram
-    cv::imshow("Histogram", histImage);
-    cv::waitKey(0);
+    if (show)
+    {
+        cv::imshow("Histogram", histImage);
+        cv::waitKey(0);
+    }
 }
 
 #endif

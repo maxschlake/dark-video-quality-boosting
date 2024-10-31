@@ -22,7 +22,7 @@ bool WriteImage::saveImage(const cv::Mat& image, const std::string& path)
     }
     else
     {
-        std::cerr << "Image could not be saved." << "\n";
+        std::cerr << "Error: Image could not be saved." << "\n";
         return false;
     }
 }

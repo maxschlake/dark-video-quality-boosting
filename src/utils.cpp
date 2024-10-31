@@ -1,10 +1,34 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <filesystem>
 #include <math.h>
 #include <opencv2/imgproc.hpp>
 #include <map>
 #include <vector>
 #include <limits>
+
+bool saveImage(const cv::Mat& image, const std::string& path)
+{   
+    // Get the directory from the provided path
+    std::filesystem::path dirPath = std::filesystem::path(path).parent_path();
+
+    // Check if the directory exists, if not create it
+    if (!std::filesystem::exists(dirPath))
+    {
+        std::filesystem::create_directories(dirPath);
+    }
+    
+    if (cv::imwrite(path, image))
+    {
+        std::cout << "Image successfully saved under: " << path << "\n";
+        return true;
+    }
+    else
+    {
+        std::cerr << "Error: Image could not be saved." << "\n";
+        return false;
+    }
+}
 
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight)
 {
@@ -69,7 +93,7 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
 
     for (auto& channel : channels)
     {
-        // find empirical min and max pixel values
+        // Find empirical min and max pixel values
         double minVal, maxVal;
         cv::minMaxLoc(channel, &minVal, &maxVal);
 
@@ -88,7 +112,6 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
             }
         }
     }
-
     // Merge the modified channels back together
     cv::merge(channels, image);
 }
@@ -116,9 +139,8 @@ void transformHistEqual(const cv::Mat& image, double clipLimit = 40.0, cv::Size 
     }
     else
     {
-        std::cerr << "Invalid equalType value. Use 'local' or 'global'.\n";
+        std::cerr << "Error: Invalid equalType value. Use 'local' or 'global'.\n";
     }
-
     // Merge the modified channels back together
     cv::merge(channels, image);
 }
@@ -177,7 +199,7 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& outp
             }
             else
             {
-                std::cerr << "Invalid scaleType value. Use 'normalized' or 'BGR'." << "\n";
+                std::cerr << "Error: Invalid scaleType value. Use 'normalized' or 'BGR'." << "\n";
             }
         }
     }
@@ -234,13 +256,12 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
     {
         double value = pair.first;
         double valueCount = static_cast<double>(pair.second);
-        //std::cout << value << ", " << valueCount << "\n";
     
         // Clip the count if it exceeds the clipping limit
         double clippedValueCount = (valueCount >= clippingLimit) ? clippingLimit : valueCount;
         clippedChannelHist[value] = clippedValueCount;
         M += clippedValueCount;
-        //std::cout << "value: " << value << ", clippedValueCount: " << clippedValueCount << "\n";
+        //std::cout << "value: " << value << ", valueCount: " << valueCount << ", clippedValueCount: " << clippedValueCount << "\n";
     }
     std::cout << "M: " << M << "\n";
     std::cout << "Unique values in clipped histogram: " << clippedChannelHist.size() << "\n";
@@ -297,8 +318,9 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
         {
             WHDFSum += weightedProbMass;
         }
-        //std::cout << "value:" << value << ", probMass: " << probMass << ", alpha: " << alpha << ", weightedProbMass: " << weightedProbMass << ", WHDFSum: " << WHDFSum << "\n";
+        //std::cout << "value:" << value << ", probMass: " << probMass << ", alpha: " << alpha << ", weightedProbMass: " << weightedProbMass << "\n";
     }
+    //std::cout << ", WHDFSum: " << WHDFSum << "\n";
     return WHDF;
 }
 

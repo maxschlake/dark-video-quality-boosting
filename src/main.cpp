@@ -8,16 +8,26 @@
 int main (int argc, char *argv[])
 {
     // READING
+
+    std::string fileName = "path";
+    std::string fileType = "jpg";
+    std::string filePath = fileName + "." + fileType;
+    std::string rawPath = "images/raw/";
+    std::string modPath = "images/mod/";
+    std::string histPath = "images/hist/";
+    std::string rawImagePath = rawPath + filePath;
+    std::string modImagePath = modPath + filePath;
+
     /*
     QApplication app(argc, argv);
     ReadImageQt readImageQt;
-    readImageQt.showImage("images/raw/lion.jpg");
+    readImageQt.showImage(rawImagePath);
     readImageQt.show();
     return app.exec();
     */
    
     //PROCESSING
-    cv::Mat image = cv::imread("images/raw/path.jpg");
+    cv::Mat image = cv::imread(rawImagePath);
 
     if(image.empty())
     std::cerr << "Image could not be loaded" << "\n";
@@ -37,19 +47,15 @@ int main (int argc, char *argv[])
 
     int channelIndex = 0;
     double cMax;
-    std::map<double, int> origHist = computeChannelHist(hsiImage, channelIndex, L, cMax);
+    std::map<double, int> originalHSIHist = computeChannelHist(hsiImage, channelIndex, L, cMax);
 
-    //plotHistogram(origHist);
-
-    double clippingLimit = computeClippingLimit(origHist, L);
+    double clippingLimit = computeClippingLimit(originalHSIHist, L);
 
     int M;
-    std::map<double, double> clippedHist = computeClippedChannelHist(origHist, clippingLimit, M);
-
-    //plotHistogram(clippedHist);
+    std::map<double, double> clippedHSIHist = computeClippedChannelHist(originalHSIHist, clippingLimit, M);
 
     double pmax, pmin;
-    std::map<double, double> PDF = computePDF(clippedHist, M, pmax, pmin);
+    std::map<double, double> PDF = computePDF(clippedHSIHist, M, pmax, pmin);
 
     std::map<double, double> CDF = computeCDF(PDF);
 
@@ -60,7 +66,11 @@ int main (int argc, char *argv[])
 
     cv::Mat transformedHSIImage = transformChannel(hsiImage, channelIndex, gamma, cMax);
 
-    std::cout << origHist.size() << ", " << clippedHist.size() << "\n";
+    std::map<double, int> transformedHSIHist = computeChannelHist(transformedHSIImage, channelIndex, L, cMax);
+    
+    int yMax, yMid;
+    plotHistogram(transformedHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, true, false);
+    plotHistogram(originalHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, false, false);
 
     cv::Mat bgrImage = transformHSIToBGR(transformedHSIImage, L - 1, "BGR");
 
@@ -70,10 +80,10 @@ int main (int argc, char *argv[])
     //cv::waitKey(0);
     
     WriteImage writer;
-    bool success = writer.saveImage(bgrImage, "images/mod/path.jpg");
+    bool success = writer.saveImage(bgrImage, modImagePath);
     QApplication app(argc, argv);
     ReadImageQt readImageQt;
-    readImageQt.showImage("images/mod/path.jpg");
+    readImageQt.showImage(QString::fromStdString(modImagePath));
     readImageQt.show();
     return app.exec();
     
