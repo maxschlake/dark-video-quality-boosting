@@ -388,9 +388,9 @@ cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inpu
             }
 
             // Store BGR values in uchar format of range [0, maxLim]
-            bgrImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(b * maxLim);
-            bgrImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(g * maxLim);
-            bgrImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(r * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(std::clamp(b, 0.0, 1.0) * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(std::clamp(g, 0.0, 1.0) * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(std::clamp(r, 0.0, 1.0) * maxLim);
         }
     }
    return bgrImage;
