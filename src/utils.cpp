@@ -494,7 +494,7 @@ cv::Mat transformHSIToBGR(const cv::Mat& image, int L, const std::string& inputS
    return bgrImage;
 }
 
-cv::Mat transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string histPath, const std::string filePath, bool verbose)
+void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string histPath, const std::string filePath, bool verbose)
 {
     const int channelIndex = 0;
     double cMax;
@@ -517,9 +517,7 @@ cv::Mat transformAGCWHD(cv::Mat& image, double L, const std::string fileName, co
     const std::map<double, double> gamma = computeGamma(WHDF, WHDFSum, cMax);
     cv::Mat transformedHSIImage = transformChannel(originalHSIImage, channelIndex, gamma, cMax, originalTargetChannel, originalOtherChannels);
     const std::map<double, int> transformedHSIHist = computeChannelHist(transformedHSIImage, channelIndex, L, cMax, transformedTargetChannel, transformedOtherChannels);
-    cv::Mat transformedBGRImage = transformHSIToBGR(transformedHSIImage, L, "BGR");
+    image = transformHSIToBGR(transformedHSIImage, L, "BGR");
     plotHistogram(transformedHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, true, false, verbose);
     plotHistogram(originalHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, false, false, verbose);
-
-    return transformedBGRImage;
 }

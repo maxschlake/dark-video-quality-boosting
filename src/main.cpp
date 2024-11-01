@@ -43,7 +43,7 @@ int main (int argc, char *argv[])
 
     //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
 
-    cv::Mat transformedImage = transformAGCWHD(image, L, fileName, histPath, filePath, verbose);
+    transformAGCWHD(image, L, fileName, histPath, filePath, verbose);
 
     saveImage(image, modImagePath, verbose);
     QApplication app(argc, argv);
