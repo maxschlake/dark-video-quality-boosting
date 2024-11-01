@@ -53,7 +53,7 @@ cv::Mat transformChannel(const cv::Mat image, int channelIndex, const std::map<d
 cv::Mat transformHSIToBGR(const cv::Mat& image, int L, const std::string& inputScaleType = "BGR");
 
 // Function to apply the Adaptive Gamma Correction with Weighted Histogram Distribution (AGCWHD) proposed by Veluchamy & Subramani (2019)
-void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string histPath, const std::string filePath, bool verbose = false);
+void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string mode, bool verbose = false, const std::string& histPath = "", const std::string& filePath = "");
 
 // Function for histogram plotting from both std::map<double, double> and std::map<double, int>
 template <typename T>

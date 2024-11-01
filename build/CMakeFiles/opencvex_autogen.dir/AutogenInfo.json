@@ -413,6 +413,12 @@
 			null
 		],
 		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.h",
+			"Mu",
+			"UVLADIE3JM/moc_processor.cpp",
+			null
+		],
+		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.h",
 			"Mu",
 			"UVLADIE3JM/moc_utils.cpp",
@@ -579,6 +585,11 @@
 		],
 		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.cpp",
 			"Mu",
 			null
 		],

@@ -380,8 +380,10 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.h
  mdp:C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h
+C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.h
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.h
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.cpp
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp
-C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp
+C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.cpp
 C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp
+C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp

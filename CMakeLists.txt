@@ -20,7 +20,8 @@ add_executable(${PROJECT_NAME}
     src/main.cpp 
     src/LabelImageQt.cpp
     src/ReadImageQt.cpp
-    src/utils.cpp)
+    src/utils.cpp
+    src/processor.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} Qt6::Widgets)
 
