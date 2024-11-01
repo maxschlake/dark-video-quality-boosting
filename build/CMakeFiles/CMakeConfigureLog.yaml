@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.11.2+c078802d4 for .NET Framework
-      Build started 01/11/2024 12:31:01.
+      Build started 01/11/2024 14:27:18.
       
       Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\3.30.5\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.53
+      Time Elapsed 00:00:00.55
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -79,7 +79,7 @@ events:
       The output was:
       0
       MSBuild version 17.11.2+c078802d4 for .NET Framework
-      Build started 01/11/2024 12:31:01.
+      Build started 01/11/2024 14:27:19.
       
       Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\3.30.5\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-uw13d5"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-uw13d5"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-sivi8p"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-sivi8p"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -137,40 +137,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-uw13d5'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-sivi8p'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bbd6b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_50634.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:02.
+        Build started 01/11/2024 14:27:20.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uw13d5\\cmTC_bbd6b.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sivi8p\\cmTC_50634.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_bbd6b.dir\\Debug\\".
+          Creating directory "cmTC_50634.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uw13d5\\Debug\\".
-          Creating directory "cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sivi8p\\Debug\\".
+          Creating directory "cmTC_50634.dir\\Debug\\cmTC_50634.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.tlog\\unsuccessfulbuild".
+          Creating "cmTC_50634.dir\\Debug\\cmTC_50634.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_50634.dir\\Debug\\cmTC_50634.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bbd6b.dir\\Debug\\\\" /Fd"cmTC_bbd6b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_50634.dir\\Debug\\\\" /Fd"cmTC_50634.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bbd6b.dir\\Debug\\\\" /Fd"cmTC_bbd6b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_50634.dir\\Debug\\\\" /Fd"cmTC_50634.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uw13d5\\Debug\\cmTC_bbd6b.exe" /INCREMENTAL /ILK:"cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-uw13d5/Debug/cmTC_bbd6b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-uw13d5/Debug/cmTC_bbd6b.lib" /MACHINE:X64  /machine:x64 cmTC_bbd6b.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_bbd6b.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uw13d5\\Debug\\cmTC_bbd6b.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sivi8p\\Debug\\cmTC_50634.exe" /INCREMENTAL /ILK:"cmTC_50634.dir\\Debug\\cmTC_50634.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-sivi8p/Debug/cmTC_50634.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-sivi8p/Debug/cmTC_50634.lib" /MACHINE:X64  /machine:x64 cmTC_50634.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_50634.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sivi8p\\Debug\\cmTC_50634.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.tlog\\unsuccessfulbuild".
-          Touching "cmTC_bbd6b.dir\\Debug\\cmTC_bbd6b.tlog\\cmTC_bbd6b.lastbuildstate".
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uw13d5\\cmTC_bbd6b.vcxproj" (default targets).
+          Deleting file "cmTC_50634.dir\\Debug\\cmTC_50634.tlog\\unsuccessfulbuild".
+          Touching "cmTC_50634.dir\\Debug\\cmTC_50634.tlog\\cmTC_50634.lastbuildstate".
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sivi8p\\cmTC_50634.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.50
+        Time Elapsed 00:00:00.51
         
       exitCode: 0
   -
@@ -210,8 +210,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-xtkfk6"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-xtkfk6"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-0b0v7b"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-0b0v7b"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -221,40 +221,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-xtkfk6'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-0b0v7b'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d35f9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_5d4ca.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:03.
+        Build started 01/11/2024 14:27:20.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xtkfk6\\cmTC_d35f9.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0b0v7b\\cmTC_5d4ca.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_d35f9.dir\\Debug\\".
+          Creating directory "cmTC_5d4ca.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xtkfk6\\Debug\\".
-          Creating directory "cmTC_d35f9.dir\\Debug\\cmTC_d35f9.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0b0v7b\\Debug\\".
+          Creating directory "cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_d35f9.dir\\Debug\\cmTC_d35f9.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_d35f9.dir\\Debug\\cmTC_d35f9.tlog\\unsuccessfulbuild".
+          Creating "cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d35f9.dir\\Debug\\\\" /Fd"cmTC_d35f9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5d4ca.dir\\Debug\\\\" /Fd"cmTC_5d4ca.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d35f9.dir\\Debug\\\\" /Fd"cmTC_d35f9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5d4ca.dir\\Debug\\\\" /Fd"cmTC_5d4ca.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xtkfk6\\Debug\\cmTC_d35f9.exe" /INCREMENTAL /ILK:"cmTC_d35f9.dir\\Debug\\cmTC_d35f9.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-xtkfk6/Debug/cmTC_d35f9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-xtkfk6/Debug/cmTC_d35f9.lib" /MACHINE:X64  /machine:x64 cmTC_d35f9.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_d35f9.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xtkfk6\\Debug\\cmTC_d35f9.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0b0v7b\\Debug\\cmTC_5d4ca.exe" /INCREMENTAL /ILK:"cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-0b0v7b/Debug/cmTC_5d4ca.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-0b0v7b/Debug/cmTC_5d4ca.lib" /MACHINE:X64  /machine:x64 cmTC_5d4ca.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_5d4ca.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0b0v7b\\Debug\\cmTC_5d4ca.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_d35f9.dir\\Debug\\cmTC_d35f9.tlog\\unsuccessfulbuild".
-          Touching "cmTC_d35f9.dir\\Debug\\cmTC_d35f9.tlog\\cmTC_d35f9.lastbuildstate".
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xtkfk6\\cmTC_d35f9.vcxproj" (default targets).
+          Deleting file "cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.tlog\\unsuccessfulbuild".
+          Touching "cmTC_5d4ca.dir\\Debug\\cmTC_5d4ca.tlog\\cmTC_5d4ca.lastbuildstate".
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0b0v7b\\cmTC_5d4ca.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.52
+        Time Elapsed 00:00:00.51
         
       exitCode: 0
   -
@@ -300,8 +300,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-wyr9p3"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-wyr9p3"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-5o9ycv"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-5o9ycv"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -311,35 +311,35 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-wyr9p3'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-5o9ycv'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_cf95b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fbaff.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:04.
+        Build started 01/11/2024 14:27:21.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\cmTC_cf95b.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\cmTC_fbaff.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_cf95b.dir\\Debug\\".
+          Creating directory "cmTC_fbaff.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\Debug\\".
-          Creating directory "cmTC_cf95b.dir\\Debug\\cmTC_cf95b.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\Debug\\".
+          Creating directory "cmTC_fbaff.dir\\Debug\\cmTC_fbaff.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_cf95b.dir\\Debug\\cmTC_cf95b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_cf95b.dir\\Debug\\cmTC_cf95b.tlog\\unsuccessfulbuild".
+          Creating "cmTC_fbaff.dir\\Debug\\cmTC_fbaff.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_fbaff.dir\\Debug\\cmTC_fbaff.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cf95b.dir\\Debug\\\\" /Fd"cmTC_cf95b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fbaff.dir\\Debug\\\\" /Fd"cmTC_fbaff.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cf95b.dir\\Debug\\\\" /Fd"cmTC_cf95b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fbaff.dir\\Debug\\\\" /Fd"cmTC_fbaff.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\src.c"
           src.c
-        C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\cmTC_cf95b.vcxproj]
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\cmTC_cf95b.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\cmTC_fbaff.vcxproj]
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\cmTC_fbaff.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\cmTC_cf95b.vcxproj" (default target) (1) ->
+        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\cmTC_fbaff.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wyr9p3\\cmTC_cf95b.vcxproj]
+          C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o9ycv\\cmTC_fbaff.vcxproj]
         
             0 Warning(s)
             1 Error(s)
@@ -361,8 +361,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-pqcb43"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-pqcb43"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-yzylod"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-yzylod"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -372,42 +372,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-pqcb43'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-yzylod'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_89400.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ab16c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:04.
+        Build started 01/11/2024 14:27:22.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\cmTC_89400.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\cmTC_ab16c.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_89400.dir\\Debug\\".
+          Creating directory "cmTC_ab16c.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\Debug\\".
-          Creating directory "cmTC_89400.dir\\Debug\\cmTC_89400.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\Debug\\".
+          Creating directory "cmTC_ab16c.dir\\Debug\\cmTC_ab16c.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_89400.dir\\Debug\\cmTC_89400.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_89400.dir\\Debug\\cmTC_89400.tlog\\unsuccessfulbuild".
+          Creating "cmTC_ab16c.dir\\Debug\\cmTC_ab16c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ab16c.dir\\Debug\\cmTC_ab16c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_89400.dir\\Debug\\\\" /Fd"cmTC_89400.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ab16c.dir\\Debug\\\\" /Fd"cmTC_ab16c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_89400.dir\\Debug\\\\" /Fd"cmTC_89400.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ab16c.dir\\Debug\\\\" /Fd"cmTC_ab16c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\Debug\\cmTC_89400.exe" /INCREMENTAL /ILK:"cmTC_89400.dir\\Debug\\cmTC_89400.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-pqcb43/Debug/cmTC_89400.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-pqcb43/Debug/cmTC_89400.lib" /MACHINE:X64  /machine:x64 cmTC_89400.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\cmTC_89400.vcxproj]
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\cmTC_89400.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\Debug\\cmTC_ab16c.exe" /INCREMENTAL /ILK:"cmTC_ab16c.dir\\Debug\\cmTC_ab16c.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-yzylod/Debug/cmTC_ab16c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-yzylod/Debug/cmTC_ab16c.lib" /MACHINE:X64  /machine:x64 cmTC_ab16c.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\cmTC_ab16c.vcxproj]
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\cmTC_ab16c.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\cmTC_89400.vcxproj" (default target) (1) ->
+        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\cmTC_ab16c.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pqcb43\\cmTC_89400.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzylod\\cmTC_ab16c.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.39
+        Time Elapsed 00:00:00.40
         
       exitCode: 1
   -
@@ -424,8 +424,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-tc8d38"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-tc8d38"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-mm62l2"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-mm62l2"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -435,42 +435,42 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-tc8d38'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-mm62l2'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_dad7d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3889e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:05.
+        Build started 01/11/2024 14:27:22.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\cmTC_dad7d.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\cmTC_3889e.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_dad7d.dir\\Debug\\".
+          Creating directory "cmTC_3889e.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\Debug\\".
-          Creating directory "cmTC_dad7d.dir\\Debug\\cmTC_dad7d.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\Debug\\".
+          Creating directory "cmTC_3889e.dir\\Debug\\cmTC_3889e.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_dad7d.dir\\Debug\\cmTC_dad7d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_dad7d.dir\\Debug\\cmTC_dad7d.tlog\\unsuccessfulbuild".
+          Creating "cmTC_3889e.dir\\Debug\\cmTC_3889e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_3889e.dir\\Debug\\cmTC_3889e.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dad7d.dir\\Debug\\\\" /Fd"cmTC_dad7d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3889e.dir\\Debug\\\\" /Fd"cmTC_3889e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dad7d.dir\\Debug\\\\" /Fd"cmTC_dad7d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3889e.dir\\Debug\\\\" /Fd"cmTC_3889e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\Debug\\cmTC_dad7d.exe" /INCREMENTAL /ILK:"cmTC_dad7d.dir\\Debug\\cmTC_dad7d.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-tc8d38/Debug/cmTC_dad7d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-tc8d38/Debug/cmTC_dad7d.lib" /MACHINE:X64  /machine:x64 cmTC_dad7d.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\cmTC_dad7d.vcxproj]
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\cmTC_dad7d.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\Debug\\cmTC_3889e.exe" /INCREMENTAL /ILK:"cmTC_3889e.dir\\Debug\\cmTC_3889e.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-mm62l2/Debug/cmTC_3889e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-mm62l2/Debug/cmTC_3889e.lib" /MACHINE:X64  /machine:x64 cmTC_3889e.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\cmTC_3889e.vcxproj]
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\cmTC_3889e.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\cmTC_dad7d.vcxproj" (default target) (1) ->
+        "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\cmTC_3889e.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tc8d38\\cmTC_dad7d.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mm62l2\\cmTC_3889e.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.40
+        Time Elapsed 00:00:00.39
         
       exitCode: 1
   -
@@ -492,8 +492,8 @@ events:
     checks:
       - "Performing Test HAVE_STDATOMIC"
     directories:
-      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-kqkh9q"
-      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-kqkh9q"
+      source: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-klmyy7"
+      binary: "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-klmyy7"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -503,40 +503,40 @@ events:
       variable: "HAVE_STDATOMIC"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-kqkh9q'
+        Change Dir: 'C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-klmyy7'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_58a5f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_8346a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.11.2+c078802d4 for .NET Framework
-        Build started 01/11/2024 12:31:06.
+        Build started 01/11/2024 14:27:23.
         
-        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\cmTC_58a5f.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\cmTC_8346a.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_58a5f.dir\\Debug\\".
+          Creating directory "cmTC_8346a.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\Debug\\".
-          Creating directory "cmTC_58a5f.dir\\Debug\\cmTC_58a5f.tlog\\".
+          Creating directory "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\Debug\\".
+          Creating directory "cmTC_8346a.dir\\Debug\\cmTC_8346a.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_58a5f.dir\\Debug\\cmTC_58a5f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_58a5f.dir\\Debug\\cmTC_58a5f.tlog\\unsuccessfulbuild".
+          Creating "cmTC_8346a.dir\\Debug\\cmTC_8346a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_8346a.dir\\Debug\\cmTC_8346a.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"cmTC_58a5f.dir\\Debug\\\\" /Fd"cmTC_58a5f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\src.cxx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"cmTC_8346a.dir\\Debug\\\\" /Fd"cmTC_8346a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\src.cxx"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"cmTC_58a5f.dir\\Debug\\\\" /Fd"cmTC_58a5f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\src.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"cmTC_8346a.dir\\Debug\\\\" /Fd"cmTC_8346a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\src.cxx"
           src.cxx
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\Debug\\cmTC_58a5f.exe" /INCREMENTAL /ILK:"cmTC_58a5f.dir\\Debug\\cmTC_58a5f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-kqkh9q/Debug/cmTC_58a5f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-kqkh9q/Debug/cmTC_58a5f.lib" /MACHINE:X64  /machine:x64 cmTC_58a5f.dir\\Debug\\src.obj
-          cmTC_58a5f.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\Debug\\cmTC_58a5f.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\Debug\\cmTC_8346a.exe" /INCREMENTAL /ILK:"cmTC_8346a.dir\\Debug\\cmTC_8346a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-klmyy7/Debug/cmTC_8346a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/CMakeScratch/TryCompile-klmyy7/Debug/cmTC_8346a.lib" /MACHINE:X64  /machine:x64 cmTC_8346a.dir\\Debug\\src.obj
+          cmTC_8346a.vcxproj -> C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\Debug\\cmTC_8346a.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_58a5f.dir\\Debug\\cmTC_58a5f.tlog\\unsuccessfulbuild".
-          Touching "cmTC_58a5f.dir\\Debug\\cmTC_58a5f.tlog\\cmTC_58a5f.lastbuildstate".
-        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqkh9q\\cmTC_58a5f.vcxproj" (default targets).
+          Deleting file "cmTC_8346a.dir\\Debug\\cmTC_8346a.tlog\\unsuccessfulbuild".
+          Touching "cmTC_8346a.dir\\Debug\\cmTC_8346a.tlog\\cmTC_8346a.lastbuildstate".
+        Done Building Project "C:\\Users\\maxim\\Documents\\Projects\\video-quality-boosting\\build\\CMakeFiles\\CMakeScratch\\TryCompile-klmyy7\\cmTC_8346a.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.56
+        Time Elapsed 00:00:00.58
         
       exitCode: 0
 ...
