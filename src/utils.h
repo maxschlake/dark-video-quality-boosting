@@ -7,11 +7,14 @@
 // Function to save images
 bool saveImage(const cv::Mat& image, const std::string& path);
 
+// Function to calculate the y-axis labels dynamically
+void calculateYAxisLabels(int maxCount, int& yMax, int& yMid);
+
 // Function to fit an image to a window
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight);
 
 // Function to apply color channel stretching
-void stretchColorChannels(const cv::Mat& image, int minLim, int MaxLim);
+void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim);
 
 // Function to apply the logarithmic transformation
 void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim);
@@ -20,10 +23,10 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim);
 void transformHistEqual(const cv::Mat& image, double clipLimit = 40, cv::Size tileGridSize = cv::Size(8, 8), const std::string& equalType = "local");
 
 // Function to apply a BGR to HSI transformation
-cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "normalized");
+cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& scaleType = "BGR");
 
 // Function to compute a histogram for a certain channel
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax);
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels);
 
 // Function to compute the clipping limit for a given channel histogram
 double computeClippingLimit(const std::map<double, int>& channelHist, int L);
@@ -44,28 +47,13 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
 std::map<double, double> computeGamma(const std::map<double, double>& WHDF, double WHDFSum, double cMax);
 
 // Function to transform a channel, based on the gamma function
-cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, double> gamma, double cMax);
+cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, double> gamma, double cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels);
 
 // Function to apply an HSI to BGR transformation
-cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType = "normalized");
+cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType = "BGR");
 
-// Function to compute the y-axis labels dynamically
-void calculateYAxisLabels(int maxCount, int& yMax, int& yMid) 
-{
-    int maxCountCopy = maxCount;
-    int counter = 0;
-    while(maxCountCopy)
-    {        
-        maxCountCopy = maxCountCopy / 10;
-        counter++;
-    }
-    double factor = pow(10, counter - 1);
-    int yMaxIntermediate = maxCount + factor;
-
-    // Determine final yMax and yMid based on yMaxIntermediate and the rounding factor
-    yMax = static_cast<int>(std::floor(static_cast<double>(yMaxIntermediate) / factor)) * factor;
-    yMid = yMax / 2;
-}
+// Function to apply the Adaptive Gamma Correction with Weighted Histogram Distribution (AGCWHD) proposed by Veluchamy & Subramani (2019)
+cv::Mat transformAGCWHD(cv::Mat& image, double L, std::string fileName, std::string histPath, std::string filePath);
 
 // Function for histogram plotting from both std::map<double, double> and std::map<double, int>
 template <typename T>

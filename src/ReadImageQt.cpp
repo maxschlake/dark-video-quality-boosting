@@ -7,7 +7,6 @@ ReadImageQt::ReadImageQt(QWidget *parent) : QWidget(parent)
 {
     setWindowTitle("Image RGB viewer");
 
-
     layout = new QVBoxLayout(this);
     labelImage = new LabelImage(this);
     labelImage->setMouseTracking(true);
