@@ -8,7 +8,7 @@
 #include <limits>
 #include "utils.h"
 
-bool saveImage(const cv::Mat& image, const std::string& path)
+bool saveImage(const cv::Mat& image, const std::string& path, bool verbose)
 {   
     // Get the directory from the provided path
     std::filesystem::path dirPath = std::filesystem::path(path).parent_path();
@@ -18,10 +18,13 @@ bool saveImage(const cv::Mat& image, const std::string& path)
     {
         std::filesystem::create_directories(dirPath);
     }
-    
     if (cv::imwrite(path, image))
     {
-        std::cout << "Image successfully saved under: " << path << "\n";
+        if (verbose)
+        {
+            std::cout << "Image successfully saved under: " << path << "\n";
+        }
+        
         return true;
     }
     else
@@ -73,8 +76,10 @@ cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMax
     return resizedImage;
 }
 
-void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
+void stretchColorChannels(const cv::Mat& image, int minL, int L)
 {
+    int maxL = L - 1;
+    
     // Loop through each channel
     std::vector<cv::Mat> channels;
     cv::split(image, channels);
@@ -93,7 +98,7 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
             {
                 // Apply stretching formula
                 uchar oldVal = channel.at<uchar>(y, x);
-                uchar newVal = static_cast<uchar>((oldVal - minVal) * (maxLim - minLim) / valRange + minLim);
+                uchar newVal = static_cast<uchar>((oldVal - minVal) * (maxL - minL) / valRange + minL);
                 channel.at<uchar>(y, x) = newVal;
             }
         }
@@ -103,8 +108,10 @@ void stretchColorChannels(const cv::Mat& image, int minLim, int maxLim)
     cv::merge(channels, image);
 }
 
-void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
+void transformLogarithmic(const cv::Mat& image, double inputScale, int L)
 {
+    int maxL = L - 1;
+    
     // Loop through each channel
     std::vector<cv::Mat> channels;
     cv::split(image, channels);
@@ -116,7 +123,7 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int maxLim)
         cv::minMaxLoc(channel, &minVal, &maxVal);
 
         // Compute the output scale factor
-        double outputScale = 255 / (log(1 + maxVal));
+        double outputScale = maxL / (log(1 + maxVal));
 
         // Stretch the channel
         for (int y = 0; y < image.rows; ++y)
@@ -163,13 +170,15 @@ void transformHistEqual(const cv::Mat& image, double clipLimit, cv::Size tileGri
     cv::merge(channels, image);
 }
 
-cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& outputScaleType)
+cv::Mat transformBGRToHSI(cv::Mat& image, int L, const std::string& outputScaleType)
 {      
+    int maxL = L - 1;
+    
     int rows = image.rows;
     int cols = image.cols;
     double r, g, b, h, s, i, theta;
     double eps = 1e-6;
-    double invMaxLim = 1.0 / maxLim; // Precompute maxLim reciprocal for efficiency
+    double invMaxLim = 1.0 / maxL; // Precompute maxLim reciprocal for efficiency
 
     // Initialize hsiImage depending on the scaleType of the output
     cv::Mat hsiImage;
@@ -211,9 +220,9 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& outp
             else if (outputScaleType == "BGR")
             {
                 // Store HSI values in uchar format of range [0, maxLim]
-                hsiImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(h * maxLim);
-                hsiImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(s* maxLim);
-                hsiImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i* maxLim);
+                hsiImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(h * maxL);
+                hsiImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(s* maxL);
+                hsiImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(i* maxL);
             }
             else
             {
@@ -224,7 +233,7 @@ cv::Mat transformBGRToHSI(cv::Mat& image, double maxLim, const std::string& outp
     return hsiImage;
 }
 
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels)
+std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels, bool verbose)
 {
     // Extract the target channel
     cv::extractChannel(image, targetChannel, channelIndex);
@@ -248,18 +257,22 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex,
             //std::cout << "value: "<< value << ", valueCount: " << channelHist[value] << "\n";
         }
     }
-    std::cout << "Target channel size: " << targetChannel.size() << "\n";
-    std::cout << "Unique values in original histogram: " << channelHist.size() << "\n";
-    std::cout << "cMax: " << cMax << "\n";
+    if (verbose)
+    {
+        std::cout << "Target channel size: " << targetChannel.size() << "\n";
+        std::cout << "Unique values in original histogram: " << channelHist.size() << "\n";
+        std::cout << "cMax: " << cMax << "\n";
+    }
+
 
     // Extract and store the remaining channels in the otherChannels vector
     otherChannels.clear();
-    for (int i = 0; i < image.channels(); ++i)
+    for (int c = 0; c < image.channels(); ++c)
     {
-        if (i != channelIndex)
+        if (c != channelIndex)
         {
             cv::Mat otherChannel;
-            cv::extractChannel(image, otherChannel, i);
+            cv::extractChannel(image, otherChannel, c);
             otherChannels.push_back(otherChannel);
         }
     }
@@ -267,7 +280,7 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex,
     return channelHist;
 }
 
-double computeClippingLimit(const std::map<double, int>& channelHist, int L)
+double computeClippingLimit(const std::map<double, int>& channelHist, int L, bool verbose)
 {
     int totalValue = 0;
     for (const auto& pair : channelHist)
@@ -275,11 +288,14 @@ double computeClippingLimit(const std::map<double, int>& channelHist, int L)
         totalValue += pair.second;
     }
     double clippingLimit = totalValue / L;
-    std::cout << "Clipping limit: " << clippingLimit << "\n";
+    if (verbose)
+    {
+        std::cout << "Clipping limit: " << clippingLimit << "\n";
+    }
     return clippingLimit;
 }
 
-std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M)
+std::map<double, double> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M, bool verbose)
 {
     std::map<double, double> clippedChannelHist;
     M = 0;
@@ -294,12 +310,15 @@ std::map<double, double> computeClippedChannelHist(const std::map<double, int>& 
         M += clippedValueCount;
         //std::cout << "value: " << value << ", valueCount: " << valueCount << ", clippedValueCount: " << clippedValueCount << "\n";
     }
-    std::cout << "M: " << M << "\n";
-    std::cout << "Unique values in clipped histogram: " << clippedChannelHist.size() << "\n";
+    if (verbose)
+    {
+        std::cout << "M: " << M << "\n";
+        std::cout << "Unique values in clipped histogram: " << clippedChannelHist.size() << "\n";
+    }
     return clippedChannelHist;
 }
 
-std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M, double& pmax, double& pmin)
+std::map<double, double> computePDF(const std::map<double, double>& clippedChannelHist, int M, double& pmax, double& pmin, bool verbose)
 {
     std::map<double, double> PDF;
 
@@ -315,7 +334,10 @@ std::map<double, double> computePDF(const std::map<double, double>& clippedChann
         pmin = std::min(pmin, probMass);
         //std::cout << "value: " << value << ", probMass: " << probMass << "\n";
     }
-    std::cout << "pmax: " << pmax << ", pmin: " << pmin <<"\n";
+    if (verbose)
+    {
+        std::cout << "pmax: " << pmax << ", pmin: " << pmin <<"\n";
+    }
     return PDF;
 }
 
@@ -333,7 +355,7 @@ std::map<double, double> computeCDF(const std::map<double, double>& PDF)
     return CDF;
 }
 
-std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax)
+std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax, bool verbose)
 {
     double pRange = pmax - pmin;
     std::map<double, double> WHDF;
@@ -351,7 +373,10 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
         }
         //std::cout << "value:" << value << ", probMass: " << probMass << ", alpha: " << alpha << ", weightedProbMass: " << weightedProbMass << "\n";
     }
-    //std::cout << ", WHDFSum: " << WHDFSum << "\n";
+    if (verbose)
+    {
+        std::cout << "WHDFSum: " << WHDFSum << "\n";
+    }
     return WHDF;
 }
 
@@ -410,15 +435,16 @@ cv::Mat transformChannel(cv::Mat image, int channelIndex, std::map<double, doubl
     return transformedImage;
 }
 
-cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inputScaleType) 
+cv::Mat transformHSIToBGR(cv::Mat& image, int L, const std::string& inputScaleType) 
 {
+    int maxL = L - 1;
     int rows = image.rows;
     int cols = image.cols;
     double r, g, b, h, s, i;
 
     // Initialize bgrImage and obtain scale factor depending on the scaleType of the input
     cv::Mat bgrImage = cv::Mat(rows, cols, CV_8UC3);
-    double scaleFactor = (inputScaleType == "normalized") ? 1.0 : 1.0 / maxLim;
+    double scaleFactor = (inputScaleType == "normalized") ? 1.0 : 1.0 / maxL;
 
     for (int row = 0; row < rows; ++row) {
         for (int col = 0; col < cols; ++col) {
@@ -452,15 +478,15 @@ cv::Mat transformHSIToBGR(cv::Mat& image, double maxLim, const std::string& inpu
             }
 
             // Store BGR values in uchar format of range [0, maxLim]
-            bgrImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(std::clamp(b, 0.0, 1.0) * maxLim);
-            bgrImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(std::clamp(g, 0.0, 1.0) * maxLim);
-            bgrImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(std::clamp(r, 0.0, 1.0) * maxLim);
+            bgrImage.at<cv::Vec3b>(row, col)[0] = static_cast<uchar>(std::clamp(b, 0.0, 1.0) * maxL);
+            bgrImage.at<cv::Vec3b>(row, col)[1] = static_cast<uchar>(std::clamp(g, 0.0, 1.0) * maxL);
+            bgrImage.at<cv::Vec3b>(row, col)[2] = static_cast<uchar>(std::clamp(r, 0.0, 1.0) * maxL);
         }
     }
    return bgrImage;
 }
 
-cv::Mat transformAGCWHD(cv::Mat& image, double L, std::string fileName, std::string histPath, std::string filePath)
+cv::Mat transformAGCWHD(cv::Mat& image, double L, std::string fileName, std::string histPath, std::string filePath, bool verbose)
 {
     int channelIndex = 0;
     double cMax;
@@ -473,19 +499,19 @@ cv::Mat transformAGCWHD(cv::Mat& image, double L, std::string fileName, std::str
     double WHDFSum;
     int yMax, yMid;
 
-    cv::Mat originalHSIImage = transformBGRToHSI(image, L - 1, "BGR");
-    std::map<double, int> originalHSIHist = computeChannelHist(originalHSIImage, channelIndex, L, cMax, originalTargetChannel, originalOtherChannels);
-    double clippingLimit = computeClippingLimit(originalHSIHist, L);
-    std::map<double, double> clippedHSIHist = computeClippedChannelHist(originalHSIHist, clippingLimit, M);
-    std::map<double, double> PDF = computePDF(clippedHSIHist, M, pmax, pmin);
+    cv::Mat originalHSIImage = transformBGRToHSI(image, L, "BGR");
+    std::map<double, int> originalHSIHist = computeChannelHist(originalHSIImage, channelIndex, L, cMax, originalTargetChannel, originalOtherChannels, verbose);
+    double clippingLimit = computeClippingLimit(originalHSIHist, L, verbose);
+    std::map<double, double> clippedHSIHist = computeClippedChannelHist(originalHSIHist, clippingLimit, M, verbose);
+    std::map<double, double> PDF = computePDF(clippedHSIHist, M, pmax, pmin, verbose);
     std::map<double, double> CDF = computeCDF(PDF);
-    std::map<double, double> WHDF = computeWHDF(PDF, CDF, WHDFSum, pmax, pmin, cMax);
+    std::map<double, double> WHDF = computeWHDF(PDF, CDF, WHDFSum, pmax, pmin, cMax, verbose);
     std::map<double, double> gamma = computeGamma(WHDF, WHDFSum, cMax);
     cv::Mat transformedHSIImage = transformChannel(originalHSIImage, channelIndex, gamma, cMax, originalTargetChannel, originalOtherChannels);
     std::map<double, int> transformedHSIHist = computeChannelHist(transformedHSIImage, channelIndex, L, cMax, transformedTargetChannel, transformedOtherChannels);
-    cv::Mat transformedBGRImage = transformHSIToBGR(transformedHSIImage, L - 1, "BGR");
-    plotHistogram(transformedHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, true, false);
-    plotHistogram(originalHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, false, false);
+    cv::Mat transformedBGRImage = transformHSIToBGR(transformedHSIImage, L, "BGR");
+    plotHistogram(transformedHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, true, false, verbose);
+    plotHistogram(originalHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, false, false, verbose);
 
     return transformedBGRImage;
 }

@@ -1,6 +1,5 @@
 #include <QApplication>
 #include "ReadImageQt.h"
-#include "WriteImage.h"
 #include <opencv2/opencv.hpp>
 #include "utils.h"
 #include <opencv2/imgproc.hpp>
@@ -9,6 +8,7 @@ int main (int argc, char *argv[])
 {
     std::string fileName = "path";
     std::string fileType = "jpg";
+    bool verbose = true;
     std::string filePath = fileName + "." + fileType;
     std::string rawPath = "images/raw/";
     std::string modPath = "images/mod/";
@@ -33,17 +33,16 @@ int main (int argc, char *argv[])
 
     image = fitImageToWindow(image, 1280, 720);
 
-    const double L = 256.0;
-    //stretchColorChannels(image, 0, L - 1);
+    const int L = 256;
+    stretchColorChannels(image, 0, L);
 
-    //transformLogarithmic(image, 0.2, L - 1);
+    //transformLogarithmic(image, 0.2, L);
 
     //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
 
-    cv::Mat transformedImage = transformAGCWHD(image, L, fileName, histPath, filePath);
+    cv::Mat transformedImage = transformAGCWHD(image, L, fileName, histPath, filePath, verbose);
 
-    WriteImage writer;
-    bool success = writer.saveImage(transformedImage, modImagePath);
+    bool success = saveImage(transformedImage, modImagePath, verbose);
     QApplication app(argc, argv);
     ReadImageQt readImageQt;
     readImageQt.showImage(QString::fromStdString(modImagePath));

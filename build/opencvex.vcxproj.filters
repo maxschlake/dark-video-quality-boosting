@@ -7,13 +7,10 @@
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\LabelImage.cpp">
+    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\LabelImageQt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\ReadImageQt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\WriteImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\src\utils.cpp">

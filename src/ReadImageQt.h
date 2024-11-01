@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QStatusBar>
-#include "LabelImage.h"
+#include "LabelImageQt.h"
 
 class ReadImageQt : public QWidget
 {

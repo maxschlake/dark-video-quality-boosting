@@ -401,21 +401,15 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.h",
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.h",
 			"Mu",
-			"UVLADIE3JM/moc_LabelImage.cpp",
+			"UVLADIE3JM/moc_LabelImageQt.cpp",
 			null
 		],
 		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h",
 			"Mu",
 			"UVLADIE3JM/moc_ReadImageQt.cpp",
-			null
-		],
-		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.h",
-			"Mu",
-			"UVLADIE3JM/moc_WriteImage.cpp",
 			null
 		],
 		[
@@ -574,17 +568,12 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImage.cpp",
+			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.cpp",
 			"Mu",
 			null
 		],
 		[
 			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/WriteImage.cpp",
 			"Mu",
 			null
 		],
