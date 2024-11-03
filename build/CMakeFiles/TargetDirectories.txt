@@ -1,3 +1,4 @@
 C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost.dir
+C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/PACKAGE.dir
 C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/ZERO_CHECK.dir
