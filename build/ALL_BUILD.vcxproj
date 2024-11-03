@@ -173,9 +173,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\build\opencvex.vcxproj">
-      <Project>{77E22620-1D20-3DB1-8C05-FFCE3B02E5B8}</Project>
-      <Name>opencvex</Name>
+    <ProjectReference Include="C:\Users\maxim\Documents\Projects\video-quality-boosting\build\boost.vcxproj">
+      <Project>{1A201388-17CE-3D46-8915-8DC08A3192DC}</Project>
+      <Name>boost</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

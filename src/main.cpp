@@ -1,10 +1,10 @@
-#include <QApplication>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <iostream>
-#include "ReadImageQt.h"
+#include <QApplication>
 #include "utils.h"
 #include "processor.h"
+#include "ReadImageQt.h"
 
 int main (int argc, char *argv[])
 {
@@ -85,76 +85,56 @@ int main (int argc, char *argv[])
     }
     */
     
+    
+
     const std::string mode = "video";
-    const std::string fileName = "v1";
+    const std::string fileName = "v1_short";
     const std::string fileType = "mp4";
-    const std::string transformType = "log";
+    const std::string transformType = "locHE";
+    const bool show = true;
     const int L = 256;
     const bool verbose = true;
     const double inputScale = 0.2;
     const double clipLimit = 40.0;
     const cv::Size tileGridSize(8, 8);
 
+    const std::string file = fileName + "." + fileType;
 
-    const std::string filePath = fileName + "." + fileType;
     const std::string rawImageDir = "images/raw/";
     const std::string modImageDir = "images/mod/";
-    const std::string histPath = "images/hist/";
-    const std::string rawImagePath = rawImageDir + filePath;
-    const std::string modImagePath = modImageDir + filePath;
+    const std::string histDir = "images/hist/";
+    const std::string rawImagePath = rawImageDir + file;
+    const std::string modImageFilePath = modImageDir + fileName + "_" + transformType + ".jpg";
 
     const std::string rawVideoDir = "videos/raw/";
     const std::string modVideoDir = "videos/mod/";
-    const std::string rawVideoPath = rawVideoDir + filePath;
-    const std::string modVideoPath = modVideoDir + filePath;
+    const std::string rawVideoPath = rawVideoDir + file;
+    const std::string modVideoFilePath = modVideoDir + fileName + "_" + transformType + ".mp4";
+
+    std::cout << "HERE" << "\n";
 
     if (mode == "image")
     {
-        processImage(rawImagePath, modImagePath, mode, fileName, filePath, histPath, transformType, L, verbose, inputScale, clipLimit, tileGridSize);
+        processImage(
+            rawImagePath, fileName, file, modImageFilePath, histDir, mode, transformType, L, verbose, inputScale, clipLimit, tileGridSize);
     }
     else if (mode == "video")
     {
-        processVideo(rawVideoPath, modVideoDir, fileName, mode, transformType, L, verbose, inputScale, clipLimit, tileGridSize);
+        processVideo(
+            rawVideoPath, fileName, modVideoFilePath, mode, transformType, L, verbose, inputScale, clipLimit, tileGridSize);
     }
     else
     {
         std::cerr << "Error: Unknown mode: " << mode << "\n";
     }
 
-    // READING
-    /*
-    QApplication app(argc, argv);
-    ReadImageQt readImageQt;
-    readImageQt.showImage(rawImagePath);
-    readImageQt.show();
-    return app.exec();
-    */
-   
-   /*
-    // PROCESSING
-    cv::Mat image = cv::imread(rawImagePath);
-
-    if(image.empty())
+    if (mode == "image" && show)
     {
-        std::cerr << "Image could not be loaded" << "\n";
-        return -1;
+        QApplication app(argc, argv);
+        ReadImageQt readImageQt;
+        readImageQt.showImage(QString::fromStdString(modImageFilePath));
+        readImageQt.show();
+        return app.exec();
     }
-
-    image = fitImageToWindow(image, 1280, 720);
-
-    stretchColorChannels(image, 0, L);
-
-    //transformLogarithmic(image, 0.2, L);
-
-    //transformHistEqual(image, 2.0, cv::Size (8,8), "local");
-
-    transformAGCWHD(image, L, fileName, histPath, filePath, verbose);
-
-    saveImage(image, modImagePath, verbose);
-    */
-    QApplication app(argc, argv);
-    ReadImageQt readImageQt;
-    readImageQt.showImage(QString::fromStdString(modImagePath));
-    readImageQt.show();
-    return app.exec();
+    return 0;
 }

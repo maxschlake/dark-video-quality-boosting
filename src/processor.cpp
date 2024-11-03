@@ -5,21 +5,22 @@
 #include "processor.h"
 
 void processImage(
-    const std::string& rawImagePath, const std::string& modImagePath, const std::string& fileName, const std::string& mode,
-    const std::string& filePath, const std::string& histPath, const std::string transformType, int L, bool verbose, double inputScale, 
-    double clipLimit, const cv::Size tileGridSize)
+    const std::string& rawImagePath, const std::string& fileName, const std::string& file, const std::string& modImageFilePath,
+    const std::string& histDir, const std::string& mode, const std::string transformType, const int L, const bool verbose,
+    const double inputScale, const double clipLimit, const cv::Size& tileGridSize)
 {
     cv::Mat image = cv::imread(rawImagePath);
-
     if(image.empty())
     {
         std::cerr << "Error: Image file could not be opened." << "\n";
         return;
     }
 
+    // Fit image to window and stretch the color channels
     image = fitImageToWindow(image, 1280, 720);
     stretchColorChannels(image, 0, L);
 
+    // Perform image transformation depending on the chosen transform type
     if (transformType == "log")
     {
         transformLogarithmic(image, inputScale, L);
@@ -34,15 +35,17 @@ void processImage(
     }
     else if (transformType == "AGCWHD")
     {
-        transformAGCWHD(image, L, fileName, mode, verbose, histPath, filePath);
+        transformAGCWHD(image, L, fileName, mode, verbose, histDir, file);
     }
 
-    saveImage(image, modImagePath, verbose);
+    // Save the modified image
+    saveImage(image, modImageFilePath, verbose);
 }
 
 void processVideo(
-    const std::string& rawVideoPath, const std::string& modVideoDir, const std::string& fileName, const std::string& mode,
-    const std::string& transformType, int L, bool verbose, double inputScale, double clipLimit, const cv::Size tileGridSize)
+    const std::string& rawVideoPath, const std::string& fileName, const std::string& modVideoFilePath,
+    const std::string& mode,const std::string& transformType, const int L, const bool verbose, 
+    const double inputScale, const double clipLimit, const cv::Size& tileGridSize)
 {   
     cv::VideoCapture cap(rawVideoPath);
     if (!cap.isOpened())
@@ -50,6 +53,9 @@ void processVideo(
         std::cerr << "Error: Video file could not be opened." << "\n";
         return;
     }
+    
+    // Set up mod video file path
+    createDirectory(modVideoFilePath);
 
     // Get video properties for the writer
     int frameWidth = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH));
@@ -61,18 +67,7 @@ void processVideo(
         std::cout << "frameWidth: " << frameWidth << ", frameHeight: " << frameHeight << ", fps: " << fps << "\n";
     }
 
-    // Deactivate verbose for the single images
-    bool verboseCopy = verbose;
-    verbose = false;
-
-    // Set up the output video writer and mod video directory
-    std::string modVideoFilePath = modVideoDir + fileName + "_mod.mp4";
-    const std::filesystem::path dirPath = std::filesystem::path(modVideoFilePath).parent_path();
-
-    if (!std::filesystem::exists(dirPath))
-    {
-        std::filesystem::create_directories(dirPath);
-    }
+    // Set up the output video writer
     cv::VideoWriter writer(modVideoFilePath, cv::VideoWriter::fourcc('m', 'p', '4', 'v'), fps, cv::Size(frameWidth, frameHeight));
 
     if (!writer.isOpened())
@@ -109,7 +104,7 @@ void processVideo(
         }
         else if (transformType == "AGCWHD")
         {
-            transformAGCWHD(frame, L, fileName, mode, verbose);
+            transformAGCWHD(frame, L, fileName, mode, false);
         }
 
         // Write the processed frame to the output video file
@@ -121,8 +116,6 @@ void processVideo(
     cap.release();
     writer.release();
 
-    // Reactivate verbose
-    verbose = verboseCopy;
     if (verbose)
     {
         std::cout << "Processed video saved under: " << modVideoFilePath << "\n";

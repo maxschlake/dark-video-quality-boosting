@@ -116,7 +116,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/opencvex
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/boost
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -163,7 +163,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=opencvex
+CMAKE_PROJECT_NAME:STATIC=boost
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.1.0
@@ -304,13 +304,13 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WINDEPLOYQT_EXECUTABLE:FILEPATH=C:/Qt/6.8.0/msvc2022_64/bin/windeployqt.exe
 
 //Value Computed by CMake
-opencvex_BINARY_DIR:STATIC=C:/Users/maxim/Documents/Projects/video-quality-boosting/build
+boost_BINARY_DIR:STATIC=C:/Users/maxim/Documents/Projects/video-quality-boosting/build
 
 //Value Computed by CMake
-opencvex_IS_TOP_LEVEL:STATIC=ON
+boost_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-opencvex_SOURCE_DIR:STATIC=C:/Users/maxim/Documents/Projects/video-quality-boosting
+boost_SOURCE_DIR:STATIC=C:/Users/maxim/Documents/Projects/video-quality-boosting
 
 
 ########################
@@ -1254,5 +1254,5 @@ Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Vulkan_LIBRARY
 Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/opencvex
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/boost
 

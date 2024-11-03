@@ -4,8 +4,11 @@
 #include <opencv2/opencv.hpp>
 #include <map>
 
+// Function to create directories from provided file paths
+void createDirectory(const std::string pathString);
+
 // Function to save images
-bool saveImage(const cv::Mat& image, const std::string& path, bool verbose = false);
+bool saveImage(const cv::Mat& image, const std::string& path, const bool verbose = false);
 
 // Function to calculate the y-axis labels dynamically
 void calculateYAxisLabels(int maxCount, int& yMax, int& yMid);
@@ -14,50 +17,50 @@ void calculateYAxisLabels(int maxCount, int& yMax, int& yMid);
 cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMaxHeight);
 
 // Function to apply color channel stretching
-void stretchColorChannels(const cv::Mat& image, int minL, int L);
+void stretchColorChannels(const cv::Mat& image, const int minL, const int L);
 
 // Function to apply the logarithmic transformation
-void transformLogarithmic(const cv::Mat& image, double inputScale, int L);
+void transformLogarithmic(const cv::Mat& image, const double inputScale, const int L);
 
 // Function to apply histogram equalization, either locally (CLAHE) or globally
-void transformHistEqual(const cv::Mat& image, double clipLimit = 40, const cv::Size tileGridSize = cv::Size(8, 8), const std::string& equalType = "local");
+void transformHistEqual(const cv::Mat& image, const double clipLimit = 40, const cv::Size& tileGridSize = cv::Size(8, 8), const std::string& equalType = "local");
 
 // Function to apply a BGR to HSI transformation
-cv::Mat transformBGRToHSI(const cv::Mat& image, int L, const std::string& scaleType = "BGR");
+cv::Mat transformBGRToHSI(const cv::Mat& image, const int L, const std::string& scaleType = "BGR");
 
 // Function to compute a histogram for a certain channel
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels, bool verbose = false);
+std::map<double, int> computeChannelHist(const cv::Mat& image, const int channelIndex, const int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels, const bool verbose = false);
 
 // Function to compute the clipping limit for a given channel histogram
-double computeClippingLimit(const std::map<double, int>& channelHist, int L, bool verbose = false);
+double computeClippingLimit(const std::map<double, int>& channelHist, const int L, const bool verbose = false);
 
 // Function to compute a clipped histogram for a certain channel, based on a clipping limit
-std::map<double, int> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M, bool verbose = false);
+std::map<double, int> computeClippedChannelHist(const std::map<double, int>& channelHist, const double clippingLimit, int& M, const bool verbose = false);
 
 // Function to compute the PDF for a certain channel, based on a clipped histogram
-std::map<double, double> computePDF(const std::map<double, int>& clippedChannelHist, int M, double& pmax, double& pmin, bool verbose = false);
+std::map<double, double> computePDF(const std::map<double, int>& clippedChannelHist, const int M, double& pmax, double& pmin, const bool verbose = false);
 
 // Function to compute the CDF for a certain channel, based on a PDF
 std::map<double, double> computeCDF(const std::map<double, double>& PDF);
 
 // Function to compute the weighted histogram distribution (WHD) function and WHDFSum, based on PDF, CDF, pmax, pmin and cMax
-std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax, bool verbose = false);
+std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, const double pmax, const double pmin, const double cMax, const bool verbose = false);
 
-// Function to compute Gammabased on the weighted histogram distribution (WHD) function, WHDFSum and cMax
-std::map<double, double> computeGamma(const std::map<double, double>& WHDF, double WHDFSum, double cMax);
+// Function to compute Gamma based on the weighted histogram distribution (WHD) function, WHDFSum and cMax
+std::map<double, double> computeGamma(const std::map<double, double>& WHDF, const double WHDFSum, const double cMax);
 
 // Function to transform a channel, based on the gamma function
-cv::Mat transformChannel(const cv::Mat image, int channelIndex, const std::map<double, double> gamma, double cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels);
+cv::Mat transformChannel(const cv::Mat image, const int channelIndex, const std::map<double, double> gamma, const double cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels);
 
 // Function to apply an HSI to BGR transformation
-cv::Mat transformHSIToBGR(const cv::Mat& image, int L, const std::string& inputScaleType = "BGR");
+cv::Mat transformHSIToBGR(const cv::Mat& image, const int L, const std::string& inputScaleType = "BGR");
 
 // Function to apply the Adaptive Gamma Correction with Weighted Histogram Distribution (AGCWHD) proposed by Veluchamy & Subramani (2019)
-void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string mode, bool verbose = false, const std::string& histPath = "", const std::string& filePath = "");
+void transformAGCWHD(cv::Mat& image, const int L, const std::string fileName, const std::string mode, const bool verbose = false, const std::string& histPath = "", const std::string& file = "");
 
 // Function for histogram plotting from both std::map<double, double> and std::map<double, int>
 template <typename T>
-void plotHistogram(const std::map<double, T>& histMap, int L, std::string histTitle, std::string histPath, std::string filePath, int&yMax, int& yMid, int offset = 40, bool recalc = true, bool show = false, bool verbose = false) 
+void plotHistogram(const std::map<double, T>& histMap, const int L, const std::string& histTitle, const std::string& histDir, const std::string& file, int& yMax, int& yMid, const int offset = 40, const bool recalc = true, const bool show = false, const bool verbose = false) 
 {
     int histSize = histMap.size();          // Number of unique intensity values
     const int outputSize = 600;                   // Fixed size for square output canvas
@@ -141,10 +144,10 @@ void plotHistogram(const std::map<double, T>& histMap, int L, std::string histTi
     cv::putText(histImage, "Intensity", cv::Point(histWidth / 2 + offset - 20, histHeight + offset + 33), cv::FONT_HERSHEY_DUPLEX, 0.4, cv::Scalar(0, 0, 0), 1);
 
     // Add title
-    cv::putText(histImage, histTitleDetail + filePath, cv::Point(histWidth / 6, 34), cv::FONT_HERSHEY_DUPLEX, 0.6, cv::Scalar(0, 0, 0), 1);
+    cv::putText(histImage, histTitleDetail + file, cv::Point(histWidth / 6, 34), cv::FONT_HERSHEY_DUPLEX, 0.6, cv::Scalar(0, 0, 0), 1);
 
     // Save histogram
-    std::string histfilePath = histPath + histTitle + suffix + ".jpg";
+    std::string histfilePath = histDir + histTitle + suffix + ".jpg";
     saveImage(histImage, histfilePath, verbose);
     
     // Display histogram

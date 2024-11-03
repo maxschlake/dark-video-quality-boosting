@@ -8,16 +8,21 @@
 #include <limits>
 #include "utils.h"
 
-bool saveImage(const cv::Mat& image, const std::string& path, bool verbose)
-{   
+void createDirectory(const std::string pathString)
+{
     // Get the directory from the provided path
-    const std::filesystem::path dirPath = std::filesystem::path(path).parent_path();
+    const std::filesystem::path parentDir = std::filesystem::path(pathString).parent_path();
 
     // Check if the directory exists, if not create it
-    if (!std::filesystem::exists(dirPath))
+    if (!std::filesystem::exists(parentDir))
     {
-        std::filesystem::create_directories(dirPath);
+        std::filesystem::create_directories(parentDir);
     }
+}
+
+bool saveImage(const cv::Mat& image, const std::string& path, const bool verbose)
+{   
+    createDirectory(path);
     if (cv::imwrite(path, image))
     {
         if (verbose)
@@ -75,7 +80,7 @@ cv::Mat fitImageToWindow(const cv::Mat& image, int windowMaxWidth, int windowMax
     return resizedImage;
 }
 
-void stretchColorChannels(const cv::Mat& image, int minL, int L)
+void stretchColorChannels(const cv::Mat& image, const int minL, const int L)
 {
     const int maxL = L - 1;
     
@@ -107,7 +112,7 @@ void stretchColorChannels(const cv::Mat& image, int minL, int L)
     cv::merge(channels, image);
 }
 
-void transformLogarithmic(const cv::Mat& image, double inputScale, int L)
+void transformLogarithmic(const cv::Mat& image, const double inputScale, const int L)
 {
     const int maxL = L - 1;
     
@@ -140,7 +145,7 @@ void transformLogarithmic(const cv::Mat& image, double inputScale, int L)
     cv::merge(channels, image);
 }
 
-void transformHistEqual(const cv::Mat& image, double clipLimit, const cv::Size tileGridSize, const std::string& equalType)
+void transformHistEqual(const cv::Mat& image, const double clipLimit, const cv::Size& tileGridSize, const std::string& equalType)
 {
     // Apply channel-wise
     std::vector<cv::Mat> channels;
@@ -169,7 +174,7 @@ void transformHistEqual(const cv::Mat& image, double clipLimit, const cv::Size t
     cv::merge(channels, image);
 }
 
-cv::Mat transformBGRToHSI(const cv::Mat& image, int L, const std::string& outputScaleType)
+cv::Mat transformBGRToHSI(const cv::Mat& image, const int L, const std::string& outputScaleType)
 {      
     const int maxL = L - 1;
     
@@ -232,7 +237,7 @@ cv::Mat transformBGRToHSI(const cv::Mat& image, int L, const std::string& output
     return hsiImage;
 }
 
-std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex, int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels, bool verbose)
+std::map<double, int> computeChannelHist(const cv::Mat& image, const int channelIndex, const int L, double& cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels, const bool verbose)
 {
     // Extract the target channel
     cv::extractChannel(image, targetChannel, channelIndex);
@@ -278,7 +283,7 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, int channelIndex,
     return channelHist;
 }
 
-double computeClippingLimit(const std::map<double, int>& channelHist, int L, bool verbose)
+double computeClippingLimit(const std::map<double, int>& channelHist, const int L, const bool verbose)
 {
     int totalValue = 0;
     for (const auto& pair : channelHist)
@@ -293,7 +298,7 @@ double computeClippingLimit(const std::map<double, int>& channelHist, int L, boo
     return clippingLimit;
 }
 
-std::map<double, int> computeClippedChannelHist(const std::map<double, int>& channelHist, double clippingLimit, int& M, bool verbose)
+std::map<double, int> computeClippedChannelHist(const std::map<double, int>& channelHist, const double clippingLimit, int& M, const bool verbose)
 {
     std::map<double, int> clippedChannelHist;
     M = 0;
@@ -316,7 +321,7 @@ std::map<double, int> computeClippedChannelHist(const std::map<double, int>& cha
     return clippedChannelHist;
 }
 
-std::map<double, double> computePDF(const std::map<double, int>& clippedChannelHist, int M, double& pmax, double& pmin, bool verbose)
+std::map<double, double> computePDF(const std::map<double, int>& clippedChannelHist, const int M, double& pmax, double& pmin, const bool verbose)
 {
     std::map<double, double> PDF;
 
@@ -353,7 +358,7 @@ std::map<double, double> computeCDF(const std::map<double, double>& PDF)
     return CDF;
 }
 
-std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, double pmax, double pmin, double cMax, bool verbose)
+std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const std::map<double, double>& CDF, double& WHDFSum, const double pmax, const double pmin, const double cMax, const bool verbose)
 {
     const double pRange = pmax - pmin;
     std::map<double, double> WHDF;
@@ -378,7 +383,7 @@ std::map<double, double> computeWHDF(const std::map<double, double>& PDF, const 
     return WHDF;
 }
 
-std::map<double, double> computeGamma(const std::map<double, double>& WHDF, double WHDFSum, double cMax)
+std::map<double, double> computeGamma(const std::map<double, double>& WHDF, const double WHDFSum, const double cMax)
 {
     // Compute weighted CDF
     std::map<double, double> gamma;
@@ -398,7 +403,7 @@ std::map<double, double> computeGamma(const std::map<double, double>& WHDF, doub
     return gamma;
 }
 
-cv::Mat transformChannel(const cv::Mat image, int channelIndex, const std::map<double, double> gamma, double cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels)
+cv::Mat transformChannel(const cv::Mat image, const int channelIndex, const std::map<double, double> gamma, const double cMax, cv::Mat& targetChannel, std::vector<cv::Mat>& otherChannels)
 {
     const int rows = targetChannel.rows;
     const int cols = targetChannel.cols;
@@ -443,7 +448,7 @@ cv::Mat transformChannel(const cv::Mat image, int channelIndex, const std::map<d
     return transformedImage;
 }
 
-cv::Mat transformHSIToBGR(const cv::Mat& image, int L, const std::string& inputScaleType) 
+cv::Mat transformHSIToBGR(const cv::Mat& image, const int L, const std::string& inputScaleType) 
 {
     const int maxL = L - 1;
     const int rows = image.rows;
@@ -494,7 +499,7 @@ cv::Mat transformHSIToBGR(const cv::Mat& image, int L, const std::string& inputS
    return bgrImage;
 }
 
-void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const std::string mode, bool verbose, const std::string& histPath, const std::string& filePath)
+void transformAGCWHD(cv::Mat& image, const int L, const std::string fileName, const std::string mode, const bool verbose, const std::string& histDir, const std::string& file)
 {
     const int channelIndex = 0;
     double cMax;
@@ -518,9 +523,9 @@ void transformAGCWHD(cv::Mat& image, double L, const std::string fileName, const
     cv::Mat transformedHSIImage = transformChannel(originalHSIImage, channelIndex, gamma, cMax, originalTargetChannel, originalOtherChannels);
     const std::map<double, int> transformedHSIHist = computeChannelHist(transformedHSIImage, channelIndex, L, cMax, transformedTargetChannel, transformedOtherChannels);
     image = transformHSIToBGR(transformedHSIImage, L, "BGR");
-    if (mode == "image" && !histPath.empty() && !filePath.empty())
+    if (mode == "image" && !histDir.empty() && !file.empty())
     {
-        plotHistogram(transformedHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, true, false, verbose);
-        plotHistogram(originalHSIHist, L, fileName, histPath, filePath, yMax, yMid, 40, false, false, verbose);
+        plotHistogram(transformedHSIHist, L, fileName, histDir, file, yMax, yMid, 40, true, false, verbose);
+        plotHistogram(originalHSIHist, L, fileName, histDir, file, yMax, yMid, 40, false, false, verbose);
     }
 }

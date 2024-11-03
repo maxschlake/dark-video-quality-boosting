@@ -6,14 +6,14 @@
 
 // Function to process an image
 void processImage(
-    const std::string& rawImagePath, const std::string& modImagePath, const std::string& fileName, const std::string& mode,
-    const std::string& filePath, const std::string& histPath, const std::string transformType, int L, bool verbose, double inputScale,
-    double clipLimit = 40, const cv::Size tileGridSize = cv::Size(8, 8));
+    const std::string& rawImagePath, const std::string& fileName, const std::string& file, const std::string& modImageFilePath,
+    const std::string& histDir, const std::string& mode, const std::string transformType, const int L, const bool verbose,
+    const double inputScale = 0.2, const double clipLimit = 40, const cv::Size& tileGridSize = cv::Size(8, 8));
 
 // Function to process a video
 void processVideo(
-    const std::string& rawVideoPath, const std::string& modVideoDir, const std::string& fileName, const std::string& mode, 
-    const std::string& transformType, int L, bool verbose, double inputScale,
-    double clipLimit = 40, const cv::Size tileGridSize = cv::Size(8, 8));
+    const std::string& rawVideoPath, const std::string& fileName, const std::string& modVideoFilePath, 
+    const std::string& mode, const std::string& transformType, const int L, const bool verbose,
+    const double inputScale = 0.2, const double clipLimit = 40, const cv::Size& tileGridSize = cv::Size(8, 8));
 
 #endif
