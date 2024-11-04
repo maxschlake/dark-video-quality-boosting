@@ -7,36 +7,56 @@
 #include "processor.h"
 #include "ReadImageQt.h"
 
+void printUsage(const char* programName)
+{
+    std::cout << "\n" << "Usage: " << programName << "\n"
+    << "For more information, see also: https://github.com/maxschlake/dark-video-quality-boosting" << "\n\n"
+    << "<mode>                ----    <char>    Choose mode: 'image', 'video'\n"
+    << "<rawFileDir>          ----    <char>    Enter directory of the raw file\n"
+    << "<rawFileName>         ----    <char>    Enter name of the raw file\n"
+    << "<rawFileType>         ----    <char>    Enter type of the raw file\n"
+    << "<transformType>       ----    <char>    Choose transform type: 'log', 'locHE', 'globHE', 'AGCWHD'\n"
+    << "<L>                   ----    <int>     Enter the number of possible intensity values\n"
+    << "<verbose>             ----    <bool>    Show extended commentary: 'true', 'false'\n"
+    << "[<show>]              ----    <bool>    Show output image (only for 'image' mode): 'true', 'false'\n"
+    << "[<inputScale>]        ----    <double>  Enter the input scale (only for 'log' transform type)\n"
+    << "[<clipLimit>]         ----    <double>  Enter the clip limit (only for 'locHE' transform type)\n"
+    << "[<tileGridWidth>]     ----    <int>     Enter the tile grid width (only for 'locHE' transform type)\n"
+    << "[<tileGridHeight>]    ----    <int>     Enter the tile grid height (only for 'locHE' transform type)\n";
+}
+
 int main (int argc, char *argv[])
 {   
+    // Set OpenCV logging level to ERROR to suppress warnings
+    cv::utils::logging::setLogLevel(cv::utils::logging::LOG_LEVEL_ERROR);
+
+    // Check if no arguments are provided
+    if (argc == 1)
+    {
+        std::cerr << "Error: No arguments provided. Please run the program with necessary arguments from the command line.\n";
+        printUsage(argv[0]);
+        std::cout << "\n" << "Press any key to exit." << "\n";
+        std::cin.get();
+        return -1;
+    }
+
     // Check if the mandatory arguments are provided and do not start with '-'
-    for (int i = 1; i <= 7; ++i) {
-        if (argv[i][0] == '-') 
+    for (int i = 1; i <= 7; ++i) 
+    {
+        if (argv[i] == nullptr || argv[i][0] == '-') 
         {
-            std::cerr << "Error: Argument " << i << " is required but not provided." << "\n\n"
-            "Usage: " << argv[0] << "\n"
-            << "<image|video>" << "         ----    Choose mode: 'image', 'video'" << "\n"
-            << "<rawFileDir>" << "          ----    Enter directory of the raw file" << "\n"
-            << "<rawFileName>" << "         ----    Enter name of the raw file" << "\n"
-            << "<rawFileType>" << "         ----    Enter type of the raw file" << "\n"
-            << "<transformType>" << "       ----    Choose transform type: 'log', 'locHE', 'globHE', 'AGCWHD'" << "\n"
-            << "<L>" << "                   ----    Enter the number of possible intensity values'" << "\n"
-            << "<verbose>" << "             ----    Show extended commentary" << "\n"
-            << "[<show>]" << "              ----    Show output image (only for 'image' mode)" << "\n"
-            << "[<inputScale>]" << "        ----    Enter the input scale (only for 'log' transform type)" << "\n"
-            << "[<clipLimit>]" << "         ----    Enter the clip limit (only for 'locHE' transform type)" << "\n"
-            << "[<tileGidWidth>]" << "      ----    Enter the tile grid width (only for 'locHE' transform type)" << "\n"
-            << "[<tileGridHeight>]" << "    ----    Enter the tile grid height (only for 'locHE' transform type)" << "\n";
+            std::cerr << "Error: Argument " << i << " is required but not provided." << "\n";
+            printUsage(argv[0]);
             return -1;
         }
     }
 
     // Command line argument parsing
-    const std::string mode = argv[1];                               // "image" or "video"
+    const std::string mode = argv[1];                               // mode: "image" or "video"
     const std::string rawFileDir = argv[2];                         // Directory of raw file
     const std::string rawFileName = argv[3];                        // Name of raw file
     const std::string rawFileType = argv[4];                        // Type of raw file
-    const std::string transformType = argv[5];                      // Transform type
+    const std::string transformType = argv[5];                      // Transform type: "log", "locHE", "globHE" or "AGCWHD"
     const int L = std::stoi(argv[6]);                               // Number of possible intensity values
     const bool verbose = (std::string(argv[7]) == "true");          // Show extended commentary
 
@@ -47,6 +67,7 @@ int main (int argc, char *argv[])
     cv::Size tileGridSize(8, 8);                                    // tile grid size (only for local histogram equalization)
 
     // Initialize optional parameter flags with defaults
+    bool showProvided = false;
     bool inputScaleProvided = false;
     bool clipLimitProvided = false;
     bool tileGridWidthProvided = false;
@@ -59,7 +80,17 @@ int main (int argc, char *argv[])
 
         if (arg == "--show" && mode == "image")
         {
-            show = true;
+            if (i + 1 < argc && argv[i + 1][0] != '-')
+            {
+                std::string showValue = argv[++i];
+                show = (showValue == "true");
+                showProvided = true;
+            }
+            else
+            {
+            std::cerr << "Error: '--show' requires 'true' or 'false'.\n";
+            return -1;
+            }
         }
         else if (arg == "--inputScale" && transformType == "log")
         {
@@ -121,7 +152,7 @@ int main (int argc, char *argv[])
     }
 
     // Throw errors if optional parameters are not provided for specific modes and transform types
-    if (mode == "image" && !show)
+    if (mode == "image" && !showProvided)
     {
         std::cerr << "Error: '--show' parameter is required for 'image' mode.\n";
         return -1;
