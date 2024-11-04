@@ -1,4 +1,4 @@
-C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include_Release/UVLADIE3JM/moc_ReadImageQt.cpp: C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h \
+C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include_Release/UVLADIE3JM/moc_ReadImageQt.cpp: C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/ReadImageQt.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QList \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QRect \
@@ -190,4 +190,4 @@ C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/inc
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
-  C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.h
+  C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/LabelImageQt.h

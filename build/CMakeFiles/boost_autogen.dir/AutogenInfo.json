@@ -1,18 +1,18 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting",
+	"BUILD_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting",
 	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/CMakeLists.txt",
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/CMakeLists.txt",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/3.30.5/CMakeSystem.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -25,7 +25,7 @@
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-MSVC-C.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-MSVC.cmake",
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCXXInformation.cmake",
@@ -265,48 +265,48 @@
 		"C:/Program Files/CMake/share/cmake-3.30/Templates/CPackConfig.cmake.in",
 		"C:/Program Files/CMake/share/cmake-3.30/Templates/CPackConfig.cmake.in"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting",
+	"CMAKE_SOURCE_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting",
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.h",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/LabelImageQt.h",
 			"Mu",
 			"UVLADIE3JM/moc_LabelImageQt.cpp",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.h",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/ReadImageQt.h",
 			"Mu",
 			"UVLADIE3JM/moc_ReadImageQt.cpp",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.h",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/processor.h",
 			"Mu",
 			"UVLADIE3JM/moc_processor.cpp",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.h",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/utils.h",
 			"Mu",
 			"UVLADIE3JM/moc_utils.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include",
-	"INCLUDE_DIR_Debug" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include_Debug",
-	"INCLUDE_DIR_MinSizeRel" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include_MinSizeRel",
-	"INCLUDE_DIR_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include_RelWithDebInfo",
-	"INCLUDE_DIR_Release" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/include_Release",
-	"MOC_COMPILATION_FILE" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/mocs_compilation.cpp",
-	"MOC_COMPILATION_FILE_Debug" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/mocs_compilation_Debug.cpp",
-	"MOC_COMPILATION_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/mocs_compilation_MinSizeRel.cpp",
-	"MOC_COMPILATION_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/mocs_compilation_RelWithDebInfo.cpp",
-	"MOC_COMPILATION_FILE_Release" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/boost_autogen/mocs_compilation_Release.cpp",
+	"INCLUDE_DIR" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include",
+	"INCLUDE_DIR_Debug" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/mocs_compilation.cpp",
+	"MOC_COMPILATION_FILE_Debug" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/mocs_compilation_Debug.cpp",
+	"MOC_COMPILATION_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/mocs_compilation_MinSizeRel.cpp",
+	"MOC_COMPILATION_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/mocs_compilation_RelWithDebInfo.cpp",
+	"MOC_COMPILATION_FILE_Release" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/boost_autogen/mocs_compilation_Release.cpp",
 	"MOC_DEFINITIONS" : [],
 	"MOC_DEFINITIONS_Debug" : 
 	[
@@ -369,7 +369,7 @@
 	"MOC_INCLUDES" : [],
 	"MOC_INCLUDES_Debug" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src",
 		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
@@ -379,7 +379,7 @@
 	],
 	"MOC_INCLUDES_MinSizeRel" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src",
 		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
@@ -389,7 +389,7 @@
 	],
 	"MOC_INCLUDES_RelWithDebInfo" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src",
 		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
@@ -399,7 +399,7 @@
 	],
 	"MOC_INCLUDES_Release" : 
 	[
-		"C:/Users/maxim/Documents/Projects/video-quality-boosting/src",
+		"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src",
 		"C:/opt/opencv/build/include",
 		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
 		"C:/Qt/6.8.0/msvc2022_64/include",
@@ -424,11 +424,11 @@
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : true,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache.txt",
-	"PARSE_CACHE_FILE_Debug" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_Debug.txt",
-	"PARSE_CACHE_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_MinSizeRel.txt",
-	"PARSE_CACHE_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_RelWithDebInfo.txt",
-	"PARSE_CACHE_FILE_Release" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_Release.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/ParseCache_Release.txt",
 	"QT_MOC_EXECUTABLE" : "",
 	"QT_MOC_EXECUTABLE_Debug" : "C:/Qt/6.8.0/msvc2022_64/bin/moc.exe",
 	"QT_MOC_EXECUTABLE_MinSizeRel" : "C:/Qt/6.8.0/msvc2022_64/bin/moc.exe",
@@ -437,35 +437,35 @@
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
-	"SETTINGS_FILE" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed.txt",
-	"SETTINGS_FILE_Debug" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_Debug.txt",
-	"SETTINGS_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_MinSizeRel.txt",
-	"SETTINGS_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
-	"SETTINGS_FILE_Release" : "C:/Users/maxim/Documents/Projects/video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_Release.txt",
+	"SETTINGS_FILE" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/build/CMakeFiles/boost_autogen.dir/AutogenUsed_Release.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/LabelImageQt.cpp",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/LabelImageQt.cpp",
 			"Mu",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/ReadImageQt.cpp",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/ReadImageQt.cpp",
 			"Mu",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/main.cpp",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/main.cpp",
 			"Mu",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/processor.cpp",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/processor.cpp",
 			"Mu",
 			null
 		],
 		[
-			"C:/Users/maxim/Documents/Projects/video-quality-boosting/src/utils.cpp",
+			"C:/Users/maxim/Documents/Projects/dark-video-quality-boosting/src/utils.cpp",
 			"Mu",
 			null
 		]
