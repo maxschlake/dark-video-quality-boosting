@@ -107,7 +107,7 @@ void stretchColorChannels(const cv::Mat& image, const int minL, const int L)
             }
         }
     }
-
+    
     // Merge the modified channels back together
     cv::merge(channels, image);
 }
@@ -129,12 +129,11 @@ void transformLogarithmic(const cv::Mat& image, const double inputScale, const i
         // Compute the output scale factor
         const double outputScale = maxL / (log(1 + maxVal));
 
-        // Stretch the channel
+        // Apply log transformation
         for (int y = 0; y < image.rows; ++y)
         {
             for (int x = 0; x < image.cols; ++x)
             {
-                // Apply stretching formula
                 const uchar oldVal = channel.at<uchar>(y, x);
                 const uchar newVal = static_cast<uchar>(outputScale * log(1 + (exp(inputScale) - 1) * oldVal));
                 channel.at<uchar>(y, x) = newVal;
@@ -219,7 +218,6 @@ cv::Mat transformBGRToHSI(const cv::Mat& image, const int L, const std::string& 
                 hsiImage.at<cv::Vec3d>(row, col)[2] = h;
                 hsiImage.at<cv::Vec3d>(row, col)[1] = s;
                 hsiImage.at<cv::Vec3d>(row, col)[0] = i;
-
             }
             else if (outputScaleType == "BGR")
             {
@@ -279,7 +277,6 @@ std::map<double, int> computeChannelHist(const cv::Mat& image, const int channel
             otherChannels.push_back(otherChannel);
         }
     }
-
     return channelHist;
 }
 
@@ -442,7 +439,6 @@ cv::Mat transformChannel(const cv::Mat image, const int channelIndex, const std:
             channels.push_back(otherChannels[c < channelIndex ? c : c - 1]);
         }
     }
-
     cv::Mat transformedImage;
     cv::merge(channels, transformedImage);
     return transformedImage;
