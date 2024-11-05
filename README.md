@@ -1,7 +1,7 @@
 # Dark Video Quality Boosting - A pipeline to boost the brightness of images and videos which were recorded in the dark (C++ / OpenCV)
 
 ## Overview
-This program (boost.exe) can enhance the quality of images and videos which were recorded in the dark. I set up a pipeline which first stretches the color channels and then allows the user to choose from four different transformations: <br/><br/>
+In this project, I wrote a program with the aim of enhancing the quality of images and videos which were recorded in the dark. I set up a pipeline which first stretches the color channels and then allows the user to choose from four different transformations: <br/><br/>
 $\textsf{\color[rgb]{0.0, 0.0, 1.0}1) Logarithmic Transformation}$ <br/>
 In this transformation, the following formula is applied to all three channels of the image/frame: <br/><br/>
 $\text{TransformedChannel}(i, j) = \text{outputScale} \cdot \text{log}[1 + (\text{exp}^\text{inputScale} - 1) \cdot \text{Channel}(i, j)]$ <br/><br/>
@@ -33,6 +33,93 @@ $\text{I}_{\text{max}}\text{ is the maximum intensity value in the image/frame a
 - An imitation of the image viewer from Qt Creator, allowing for more detailed pixel analysis
 - With the code, I am also releasing a [binary](https://github.com/maxschlake/dark-video-quality-boosting/releases/latest) called `boost.exe`, which as to be run from the command line
 
+## Results
+<!-- Image Grid with Titles in a Table Layout -->
+<table>
+  <!-- Row 1: path.jpg images -->
+  <tr>
+    <!-- Column 1 -->
+    <td align="center">
+      <strong>Original Image</strong><br>
+      <img src="images/raw/path.jpg" alt="Image 1" width="180">
+    </td>
+    <!-- Column 2 -->
+    <td align="center">
+      <strong>Log Transformation</strong><br>
+      <img src="images/mod/path_log.jpg" alt="Image 2" width="180">
+    </td>
+    <!-- Column 3 -->
+    <td align="center">
+      <strong>Global HE</strong><br>
+      <img src="images/mod/path_globHE.jpg" alt="Image 3" width="180">
+    </td>
+    <!-- Column 4 -->
+    <td align="center">
+      <strong>Local HE</strong><br>
+      <img src="images/mod/path_locHE.jpg" alt="Image 4" width="180">
+    </td>
+    <!-- Column 5 -->
+    <td align="center">
+      <strong>AGCWHD</strong><br>
+      <img src="images/mod/path_AGCWHD.jpg" alt="Image 5" width="180">
+    </td>
+  </tr>
+  <!-- Row 2: street.jpg images -->
+  <tr>
+    <td align="center">
+      <img src="images/raw/street.jpg" alt="Image 1" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/street_log.jpg" alt="Image 2" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/street_globHE.jpg" alt="Image 3" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/street_locHE.jpg" alt="Image 4" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/street_AGCWHD.jpg" alt="Image 5" width="180">
+    </td>
+  </tr>
+  <!-- Row 3: parade.jpg images -->
+  <tr>
+    <td align="center">
+      <img src="images/raw/park.jpg" alt="Image 1" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/park_log.jpg" alt="Image 2" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/park_globHE.jpg" alt="Image 3" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/park_locHE.jpg" alt="Image 4" width="180">
+    </td>
+    <td align="center">
+      <img src="images/mod/park_AGCWHD.jpg" alt="Image 5" width="180">
+    </td>
+  </tr>
+  <!-- Row 4: candles.gif GIFs -->
+  <tr>
+    <td align="center">
+      <img src="videos/raw/candles.gif" alt="GIF 1" width="180">
+    </td>
+    <td align="center">
+      <img src="videos/mod/candles_log.gif" alt="GIF 2" width="180">
+    </td>
+    <td align="center">
+      <img src="videos/mod/candles_globHE.gif" alt="GIF 3" width="180">
+    </td>
+    <td align="center">
+      <img src="videos/mod/candles_locHE.gif" alt="GIF 4" width="180">
+    </td>
+    <td align="center">
+      <img src="videos/mod/candles_AGCWHD.gif" alt="GIF 5" width="180">
+    </td>
+  </tr>
+</table>
+
 ## How to run the program
 1. Download the [binary](https://github.com/maxschlake/dark-video-quality-boosting/releases/latest) called `boost.exe`
 2. Open the command line and navigate to the corresponding folder that contains `boost.exe`
@@ -58,6 +145,3 @@ For example,
 `boost.exe video directory/of/example/video example mp4 log 256 true --inputScale 0.5` <br/><br/>
 - to process an image `example.jpg` in directory `directory/of/example/image` with 256 possible intensity values, this time using the *locHE* transformation with verbose commentary, you need to specify `--show` (because it is an image) as well as `--clipLimit`, `--tileGridWidth`, and `--tileGridHeight`. For a clipLimit of 2.5 and an 8x8 tile grid, type: <br/>
 `boost.exe image directory/of/example/image example jpg locHE 256 true --show true --clipLimit 2.5 --tileGridWidth 8 --tileGridHeight 8`
-
-## Results
-Images and GIFs
