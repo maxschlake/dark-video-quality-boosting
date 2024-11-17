@@ -31,7 +31,7 @@ $\text{I}_{\text{max}}\text{ is the maximum intensity value in the image/frame a
 - Manual implementations of RGB-To-HSI and HSI-To-RGB conversions (since the OpenCV library only includes conversions from/to HSL and HSV color spaces).
 - An exact implementation of the AGCWHD method by Veluchamy & Subramani (2024), translating their mathematical formulae step-by-step into C++ code
 - An imitation of the image viewer from Qt Creator, allowing for more detailed pixel analysis
-- With the code, I am also releasing a [binary](https://github.com/maxschlake/dark-video-quality-boosting/releases/latest) called `boost.exe`, which as to be run from the command line
+- With the code, I am also releasing a [binary](https://github.com/maxschlake/dark-video-quality-boosting/releases/latest) called `boost.exe`, which has to be run from the command line
 
 ## Results
 <!-- Image Grid with Titles in a Table Layout -->
